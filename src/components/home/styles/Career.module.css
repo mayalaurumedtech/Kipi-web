@@ -1,0 +1,99 @@
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.innerContainer {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 100%;
+}
+
+/* Default layout (large screens) */
+.imageContainer {
+    flex: 1;
+    max-width: 45%;
+}
+
+.textContainer {
+    flex: 1;
+    max-width: 45%;
+}
+
+.heading {
+    font-size: 50px;
+    line-height: 60px;
+}
+
+.heading span {
+    font-family: "Bricolage Grotesque", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.paragraph {
+    font-family: "Bricolage Grotesque", system-ui;
+    font-optical-sizing: auto;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+}
+
+.infoCard {
+    border: 1px solid transparent;
+    border-radius: 16px;
+}
+
+.infoCard:hover {
+    border: 1px solid #000F5B;
+    border-radius: 16px;
+    box-shadow: 3px 3px 0px 0px rgba(0, 15, 91, 1);
+    transition: all .3s ease-in-out;
+}
+
+
+@media (max-width: 1024px) {
+    .innerContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imageContainer,
+    .textContainer {
+        max-width: 100%;
+    }
+
+    .heading {
+        font-size: 36px;
+        line-height: 45px;
+    }
+}
+
+
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .heading {
+        font-size: 36px;
+        line-height: 45px;
+    }
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1375px) {
+    .heading {
+        font-size: 40px;
+        line-height: 50px;
+    }
+}
+
+@media screen and (min-width: 1376px) and (max-width: 1599.98px){
+    .heading {
+        font-size: 45px;
+        line-height: 55px;
+    }
+}

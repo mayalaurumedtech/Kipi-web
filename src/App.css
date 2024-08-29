@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.active{
+    color: #3573F9 !important;
+}
+
+.active .block {
+    opacity: 1;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.innerContainer {
+    max-width: 1440px;
+    margin: 0 auto;
+}
