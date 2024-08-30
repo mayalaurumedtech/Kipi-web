@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { ImageUrls } from '../constant/Images';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './styles/Navbar.module.css';
 import Buttons from '../custom/Buttons';
+import { IconsUrls } from '../constant/Icons';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,11 +20,13 @@ const Navbar = () => {
         <div className="bg-white shadow  fixed top-0 w-full z-50">
             {/* Header Section */}
             <header className="w-full max-w-[1920px] mx-auto">
-                <div className="max-w-[1440px] mx-auto px-[5%] 2xl:px-0 py-4 flex flex-wrap justify-between items-center">
-                    <h1 className="text-3xl font-bold flex gap-2 items-center">
-                        <img src={ImageUrls.LogoSvg} alt="KIPI logo" className="h-8 w-auto" />
-                        KIPI
-                    </h1>
+                <div className="max-w-[1440px] mx-auto px-5 2xl:px-0 py-4 flex flex-wrap justify-between items-center">
+                    <Link to="/">
+                        <h1 className="text-3xl font-bold flex gap-2 items-center">
+                            <img src={IconsUrls.LogoSvg} alt="KIPI logo" className="h-8 w-auto" />
+                            KIPI
+                        </h1>
+                    </Link>
                     <nav className="hidden lg:flex">
                         <ul className="flex space-x-8">
                             {navMenu.map((menu, index) => (
@@ -33,13 +35,13 @@ const Navbar = () => {
                                         to={menu.path}
                                         exact
                                         className={`text-gray-700 font-semibold text-lg transition-colors duration-300 hover:text-[#3573F9] ${styles.activeLink}`}
-                                        activeClassName={styles.activeLink}
+                                        activeclassname={styles.activeLink}
                                     >
                                         {menu.name}
                                         <span
                                             className="block absolute left-0 -bottom-2 h-2 w-full bg-no-repeat opacity-0 transition-opacity duration-300 group-hover:opacity-5"
                                             style={{
-                                                backgroundImage: `url(${ImageUrls.BottomVector})`,
+                                                backgroundImage: `url(${IconsUrls.BottomVector})`,
                                             }}
                                         ></span>
                                     </NavLink>
@@ -48,8 +50,8 @@ const Navbar = () => {
                         </ul>
                     </nav>
                     <div className="space-x-4 hidden md:flex">
-                        <Buttons text="Login" imageSrc={ImageUrls.loginSvg} buttonStyle={`${styles.button} ${styles.loginButton}`} alt={"login"} />
-                        <Buttons text="Create an Account" imageSrc={ImageUrls.SignUpSvg} buttonStyle={`${styles.button} ${styles.signUpButton}`} alt={"Create an Account"} />
+                        <Buttons path="/login" text="Login" imageSrc={IconsUrls.loginSvg} buttonStyle={`${styles.button} ${styles.loginButton}`} alt={"login"} />
+                        <Buttons path="/CreateAccount" text="Create an Account" imageSrc={IconsUrls.SignUpSvg} buttonStyle={`${styles.button} ${styles.signUpButton}`} alt={"Create an Account"} />
                     </div>
                     <button
                         className="lg:hidden text-gray-700 focus:outline-none"
@@ -69,13 +71,13 @@ const Navbar = () => {
                                 to={menu.path}
                                 exact
                                 className={`text-gray-700 font-semibold transition-colors duration-300 hover:text-[#3573F9] ${styles.activeLink}`}
-                                activeClassName={styles.activeLink}
+                                activeclassname={styles.activeLink}
                             >
                                 {menu.name}
                                 <span
                                     className="block absolute left-0 -bottom-2 h-2 w-full bg-no-repeat opacity-0 transition-opacity duration-300 group-hover:opacity-5"
                                     style={{
-                                        backgroundImage: `url(${ImageUrls.BottomVector})`,
+                                        backgroundImage: `url(${IconsUrls.BottomVector})`,
                                     }}
                                 ></span>
                             </NavLink>
@@ -83,15 +85,14 @@ const Navbar = () => {
                     ))}
                 </ul>
                 <div className="flex space-y-4 flex-col pb-5 md:hidden ml-[4%]">
-                    <button className={`flex  w-fit px-4 py-2 ${styles.button} ${styles.loginButton}`}>
-                        <img src={ImageUrls.loginSvg} alt="login" className="h-5 w-auto" />
+                    <Link to="/login" className={`flex  w-fit px-4 py-2 ${styles.button} ${styles.loginButton}`}>
+                        <img src={IconsUrls.loginSvg} alt="login" className="h-5 w-auto" />
                         Login
-                    </button>
-                    <button className={`flex  w-fit px-4 py-2 ${styles.button} ${styles.signUpButton}`}>
-                        <img src={ImageUrls.SignUpSvg} alt="Sign Up" className="h-5 w-auto" />
+                    </Link>
+                    <Link to="/CreateAccount" className={`flex  w-fit px-4 py-2 ${styles.button} ${styles.signUpButton}`}>
+                        <img src={IconsUrls.SignUpSvg} alt="Sign Up" className="h-5 w-auto" />
                         Create an Account
-                    </button>
-
+                    </Link>
                 </div>
             </nav>
         </div>

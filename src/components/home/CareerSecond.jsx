@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles/Career.module.css';
 import { ImageUrls } from '../../constant/Images';
+import { IconsUrls } from '../../constant/Icons';
 
 const CareerSecond = () => {
 
@@ -21,7 +22,7 @@ const CareerSecond = () => {
   ];
 
   return (
-    <div className={`${styles.container} pt-24`}>
+    <div className="pt-24">
       <div className={styles.innerContainer}>
         <div className={styles.textContainer}>
           <div>
@@ -36,14 +37,10 @@ const CareerSecond = () => {
             {
               InfoCardList.map((info, index) => {
                 return (
-                  <div key={index} className={`flex gap-4 items-center py-2`}>
+                  <div key={index} className={`flex gap-4 py-2`}>
+                    <img src={IconsUrls.CheckRoundActive} alt="Info Card Image" className="w-6 h-w-6" />
                     <div>
-                      <div className="w-12 h-12 mt-3">
-                        <img src={ImageUrls.CheckRoundActive} alt="Info Card Image" className="w-fit" />
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-base">{info.description}</p>
+                      <p className="text-base font-medium">{info.description}</p>
                     </div>
                   </div>
                 );

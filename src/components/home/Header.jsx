@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconsUrls } from '../../constant/Icons';
 import { ImageUrls } from '../../constant/Images';
 import styles from './styles/Header.module.css'
 import Buttons from '../../custom/Buttons';
@@ -6,9 +7,9 @@ import Buttons from '../../custom/Buttons';
 
 const Header = () => {
     return (
-        <div
+        <div 
             className={styles.container}
-            style={{ backgroundImage: `url(${ImageUrls.BgHeader})` }}
+            
         >
             <div className={styles.innerContainer}>
                 <div className={styles.textContainer}>
@@ -20,8 +21,8 @@ const Header = () => {
                     </h3>
                     <p className={styles.paragraph}>Join us now as</p>
                     <div className={styles.buttonContainer}>
-                        <Buttons text="Student" imageSrc={ImageUrls.Students} buttonStyle={styles.studentButton} alt={"login"} />
-                        <Buttons text="Parents" imageSrc={ImageUrls.Parents} buttonStyle={styles.parentButton} alt={"Sign Up"} />
+                        <Buttons text="Student" imageSrc={IconsUrls.Students} buttonStyle={styles.studentButton} alt={"login"} />
+                        <Buttons text="Parents" imageSrc={IconsUrls.Parents} buttonStyle={styles.parentButton} alt={"Sign Up"} />
                     </div>
                 </div>
                 <div className="hidden lg:flex">

@@ -1,0 +1,111 @@
+.floatingLabelInput {
+    position: relative;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 20px;
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    cursor: pointer;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px 10px 10px 40px; 
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.inputField:focus {
+    border-color: #3573F9;
+}
+
+.inputLabel {
+    position: absolute;
+    top: 10px;
+    left: 40px; 
+    font-size: 16px;
+    font-weight: 500;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s;
+    background-color: white;
+    padding: 0 4px;
+}
+
+.inputField:focus + .inputLabel,
+.inputField:not(:placeholder-shown) + .inputLabel {
+    top: -8px;
+    left: 36px; 
+    font-size: 14px;
+    color: #3573F9;
+}
+
+.submitButton {
+    margin-top: 20px;
+    padding: 10px 0px;
+    background-color: #3573F9;
+    color: #fff;
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 3px 3px 0px 0px rgba(0, 15, 91, 1);
+}
+
+.submitButton:hover {
+    box-shadow: 4px 4px 0px 0px rgba(0, 15, 91, 1);
+    transform: translateY(-1px);
+}
+
+
+/* Hide the default checkbox */
+.roundedCheckbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 50%; 
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Checked state */
+.roundedCheckbox:checked {
+    background-color: #3573F9; 
+    border: 1px solid #3573F9;
+    position: relative;
+}
+
+.roundedCheckbox:checked::after {
+    content: '✔'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: white;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/Footer.module.css';
-import { ImageUrls } from '../constant/Images';
 import { Link } from 'react-router-dom';
+import { IconsUrls } from '../constant/Icons';
 
 
 // Footer Menu items list
@@ -15,9 +15,9 @@ const footerMenu = [
 
 // Footer Social icons 
 const socialIcons = [
-    { image: ImageUrls.Facebook, path: 'https://www.facebook.com/' },
-    { image: ImageUrls.Twitter, path: 'https://www.twitter.com/' },
-    { image: ImageUrls.Instagram, path: 'https://www.instagram.com/' },
+    { image: IconsUrls.Facebook, path: 'https://www.facebook.com/' },
+    { image: IconsUrls.Twitter, path: 'https://www.twitter.com/' },
+    { image: IconsUrls.Instagram, path: 'https://www.instagram.com/' },
 ];
 
 // Footer Legal links
@@ -35,10 +35,12 @@ const Footer = () => {
                 <div className={styles.innerContainer}>
                     <div className={`${styles.row} py-6`}>
                         <div>
-                            <h1 className="text-3xl font-bold flex gap-2 items-center">
-                                <img src={ImageUrls.LogoSvg} alt="KIPI logo" className="h-8 w-auto" />
-                                KIPI
-                            </h1>
+                            <Link to="/">
+                                <h1 className="text-3xl font-bold flex gap-2 items-center">
+                                    <img src={IconsUrls.LogoSvg} alt="KIPI logo" className="h-8 w-auto" />
+                                    KIPI
+                                </h1>
+                            </Link>
                         </div>
                         <div>
                             <ul className="flex gap-5 lg:gap-16 flex-wrap">

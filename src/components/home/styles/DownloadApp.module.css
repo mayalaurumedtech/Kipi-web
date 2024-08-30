@@ -1,13 +1,4 @@
-.container {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-.innerContainer {
-    max-width: 1440px;
-    margin: 0 auto;
-}
 
 .row {
     display: flex;
@@ -30,6 +21,13 @@
     background-color: white;
     border: 1px solid #000f5b;
     border-radius: 16px;
+}
+
+.AppDetailBox:hover {
+    border: 1px solid #000F5B;
+    border-radius: 16px;
+    box-shadow: 3px 3px 0px 0px rgba(0, 15, 91, 1);
+    transition: all .3s ease-in-out;
 }
 
 

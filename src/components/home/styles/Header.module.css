@@ -2,19 +2,12 @@
 
 .container {
     position: relative;
-    max-width: 1920px;
-    margin: 0 auto;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     z-index: 10;
-    width: 100%;
-    height: 850px;
+    height: 880px;
 }
 
 .innerContainer {
-    max-width: 1440px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -24,8 +17,8 @@
 
 .textContainer {
     position: absolute;
-    top: 21%;
-    left: 12%;
+    top: 23%;
+    left: 2%;
 }
 
 .heading {
@@ -95,22 +88,22 @@
 
 .vector01 {
     bottom: 0;
-    right: 23%;
-    width: 450px;
+    right: 16%;
+    width: 453px;
     height: auto;
     z-index: 10;
 }
 
 .vector02 {
     bottom: 0;
-    right: 16%;
-    width: 240px;
+    right: 6%;
+    width: 280px;
     /* 60px * 4 = 240px */
     height: auto;
 }
 
 .star {
-    top: 18%;
+    top: 23%;
     right: 40%;
     width: 96px;
     /* 24px * 4 = 96px */
@@ -135,7 +128,6 @@
 
     .textContainer {
         top: 20%;
-        left: 6%;
     }
 
     .heading {
@@ -154,7 +146,6 @@
 
     .textContainer {
         top: 22%;
-        left: 6%;
     }
 
     .heading {
@@ -173,7 +164,6 @@
 
     .textContainer {
         top: 20%;
-        left: 6%;
     }
 
     .heading {
@@ -187,7 +177,6 @@
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {
     .textContainer {
         top: 20%;
-        left: 5%;
     }
 
     .heading {
@@ -229,7 +218,6 @@
 
     .textContainer {
         top: 20%;
-        left: 5%;
     }
 
     .heading {
@@ -267,7 +255,6 @@
 
     .textContainer {
         top: 20%;
-        left: 5%;
     }
 
     .heading {

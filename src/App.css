@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.active{
+.active {
     color: #3573F9 !important;
 }
 
@@ -21,4 +21,71 @@
 .innerContainer {
     max-width: 1440px;
     margin: 0 auto;
+}
+
+.index-bg-img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 880px;
+    width: 100%;
+}
+
+
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+
+    .index-bg-img {
+        height: 600px;
+    }
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .index-bg-img {
+        height: 650px;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .index-bg-img {
+        height: 650px;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+
+    .index-bg-img {
+        height: 700px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) and (max-width: 1375px) {
+
+    .index-bg-img {
+        height: 700px;
+    }
+}
+
+@media screen and (min-width: 1376px) and (max-width: 1599.98px) {
+
+    .index-bg-img {
+        height: 750px;
+    }
+
+}
+
+/* Extra extra large devices (ultra-wide screens, 1600px and up) */
+@media screen and (min-width: 1920px) {
+    .index-bg-img {
+        background-size: contain;
+    }
 }

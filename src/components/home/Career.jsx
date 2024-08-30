@@ -1,34 +1,34 @@
 import React from 'react';
 import styles from './styles/Career.module.css';
-import { ImageUrls } from '../../constant/Images';
+import { IconsUrls } from '../../constant/Icons';
 
-const Career = ({careerImage}) => {
+const Career = ({ careerImage }) => {
 
   const InfoCardList = [
     {
-        title: 'Tracking & Assessment',
-        image: ImageUrls.Charts,
-        description: 'Experience a supportive environment where students thrive, and parents stay informed every step of the way'
+      title: 'Tracking & Assessment',
+      image: IconsUrls.Charts,
+      description: 'Experience a supportive environment where students thrive, and parents stay informed every step of the way'
     },
     {
       title: 'Interactive Learning',
-      image: ImageUrls.Airdrop,
+      image: IconsUrls.Airdrop,
       description: 'Experience a supportive environment where students thrive, and parents stay informed every step of the way'
     },
     {
       title: 'Centralize Learning Approach',
-      image: ImageUrls.Group,
+      image: IconsUrls.Group,
       description: 'Experience a supportive environment where students thrive, and parents stay informed every step of the way'
     },
     {
       title: 'Flexibility and Accessibility',
-      image: ImageUrls.SliderHorizontal,
+      image: IconsUrls.SliderHorizontal,
       description: 'Experience a supportive environment where students thrive, and parents stay informed every step of the way'
     },
   ];
 
   return (
-    <div className={`${styles.container} pt-24`}>
+    <div className="pt-24">
       <div className={styles.innerContainer}>
         <div className={styles.imageContainer}>
           <img src={careerImage} alt="Career Image" className="w-fit" />
@@ -47,9 +47,7 @@ const Career = ({careerImage}) => {
               InfoCardList.map((info, index) => {
                 return (
                   <div key={index} className={`flex gap-4 p-6 ${styles.infoCard}`}>
-                    <div>
-                      <img src={info.image} alt="Info Card Image" className="w-14 h-14" />
-                    </div>
+                    <img src={info.image} alt="Info Card Image" className="w-[48px] h-[48px]" />
                     <div>
                       <h3 className="text-xl font-bold">{info.title}</h3>
                       <p className="text-base">{info.description}</p>

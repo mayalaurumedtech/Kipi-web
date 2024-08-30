@@ -66,51 +66,49 @@ const ReviewSlider = () => {
     };
 
     return (
-        <div className={`${styles.container} pt-24`}>
-            <div className={styles.innerContainer}>
-                <div className={styles.textContainer}>
-                    <div className="flex items-center justify-between my-3">
-                        <h2 className={styles.heading}>Students and Parents  <br />
-                            <span>Loves Us</span>
-                        </h2>
+        <div className="pt-24">
+            <div className={styles.textContainer}>
+                <div className="flex items-center justify-between my-3">
+                    <h2 className={styles.heading}>Students and Parents  <br />
+                        <span>Loves Us</span>
+                    </h2>
 
-                        <div className="flex">
-                            <div
-                                className={`${styles.button} ${slide === 0 ? styles.disabled : ''}`}
-                                onClick={() => prevSlide(0, 1)}
-                            >
-                                <TfiAngleLeft className={styles.icon} />
-                            </div>
+                    <div className="flex">
+                        <div
+                            className={`${styles.button} ${slide === 0 ? styles.disabled : ''}`}
+                            onClick={() => prevSlide(0, 1)}
+                        >
+                            <TfiAngleLeft className={styles.icon} />
+                        </div>
 
-                            <div
-                                className={`${styles.button} ${slide >= (ReviewInfo.length - getResponsiveStep()) ? styles.disabled : ''}`}
-                                onClick={() => nextSlide(getResponsiveStep(), 1)}
-                            >
-                                <TfiAngleRight className={styles.icon} />
-                            </div>
+                        <div
+                            className={`${styles.button} ${slide >= (ReviewInfo.length - getResponsiveStep()) ? styles.disabled : ''}`}
+                            onClick={() => nextSlide(getResponsiveStep(), 1)}
+                        >
+                            <TfiAngleRight className={styles.icon} />
                         </div>
                     </div>
-
-                    <div className="pt-10 flex overflow-hidden">
-                        {
-                            ReviewInfo.map((info, index) => {
-                                return (
-                                    <div key={index} className={`shrink-0 ${styles.reviewBox}`} style={{ transform: `translateX(-${slide * 110}%)`, transition: 'all 1.5s ease' }}>
-                                        <div className="pb-2">
-                                            <img src={info.image} alt="Info Card Image" className="w-14 h-14" />
-                                            <h3 className="text-xl font-bold">{info.name}</h3>
-                                            <p className="text-base">{info.title}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-base">{info.description}</p>
-                                        </div>
-                                    </div>
-                                );
-                            })
-                        }
-                    </div>
-
                 </div>
+
+                <div className="pt-10 flex overflow-hidden">
+                    {
+                        ReviewInfo.map((info, index) => {
+                            return (
+                                <div key={index} className={`shrink-0 ${styles.reviewBox}`} style={{ transform: `translateX(-${slide * 110}%)`, transition: 'all 1.5s ease' }}>
+                                    <div className="pb-2">
+                                        <img src={info.image} alt="Info Card Image" className="w-14 h-14" />
+                                        <h3 className="text-xl font-bold">{info.name}</h3>
+                                        <p className="text-base">{info.title}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-base">{info.description}</p>
+                                    </div>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+
             </div>
         </div>
     )

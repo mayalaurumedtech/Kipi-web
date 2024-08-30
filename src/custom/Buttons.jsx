@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Buttons = ({buttonStyle, alt, text, imageSrc, ...props }) => {
+const Buttons = ({path, buttonStyle, alt, text, imageSrc, ...props }) => {
 
     return (
-        <button className={`${buttonStyle} `} {...props}>
+        <Link to={path} className={`${buttonStyle} `} {...props}>
             {imageSrc && <img src={imageSrc} alt={`${alt}`} />}
             {text}
-        </button>
+        </Link>
     );
 };
 
