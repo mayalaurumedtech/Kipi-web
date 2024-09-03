@@ -17,7 +17,7 @@ const Navbar = () => {
     ];
 
     return (
-        <div className="bg-white shadow  fixed top-0 w-full z-50">
+        <div className="bg-primaryWhite shadow  fixed top-0 w-full z-50">
             {/* Header Section */}
             <header className="w-full max-w-[1920px] mx-auto">
                 <div className="max-w-[1440px] mx-auto px-5 2xl:px-0 py-4 flex flex-wrap justify-between items-center">
@@ -34,7 +34,7 @@ const Navbar = () => {
                                     <NavLink
                                         to={menu.path}
                                         exact
-                                        className={`text-gray-700 font-semibold text-lg transition-colors duration-300 hover:text-[#3573F9] ${styles.activeLink}`}
+                                        className={`text-secondaryGrey01 font-semibold text-lg transition-colors duration-300 hover:text-primaryBlue ${styles.activeLink}`}
                                         activeclassname={styles.activeLink}
                                     >
                                         {menu.name}
@@ -54,7 +54,7 @@ const Navbar = () => {
                         <Buttons path="/CreateAccount" text="Create an Account" imageSrc={IconsUrls.SignUpSvg} buttonStyle={`${styles.button} ${styles.signUpButton}`} alt={"Create an Account"} />
                     </div>
                     <button
-                        className="lg:hidden text-gray-700 focus:outline-none"
+                        className="lg:hidden text-secondaryGrey01 focus:outline-none"
                         onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,14 +63,14 @@ const Navbar = () => {
                     </button>
                 </div>
             </header>
-            <nav className={`lg:hidden bg-white shadow-md ${isMobileMenuOpen ? styles.mobileMenuVisible : styles.mobileMenu}`}>
+            <nav className={`lg:hidden bg-primaryWhite shadow-md ${isMobileMenuOpen ? styles.mobileMenuVisible : styles.mobileMenu}`}>
                 <ul className="flex flex-col space-y-4 p-4 ml-[2%]">
                     {navMenu.map((menu, index) => (
                         <li key={index} className={styles.navLink}>
                             <NavLink
                                 to={menu.path}
                                 exact
-                                className={`text-gray-700 font-semibold transition-colors duration-300 hover:text-[#3573F9] ${styles.activeLink}`}
+                                className={`text-secondaryGrey01 font-semibold transition-colors duration-300 hover:text-primaryBlue ${styles.activeLink}`}
                                 activeclassname={styles.activeLink}
                             >
                                 {menu.name}

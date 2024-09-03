@@ -29,6 +29,10 @@ import Email from '../assets/icons/email.svg';
 import Lock from '../assets/icons/lock.svg';
 import EyeOpen from '../assets/icons/eye-open.svg';
 import EyeClose from '../assets/icons/eye-close.svg';
+import Google from '../assets/icons/google.svg';
+import Apple from '../assets/icons/apple.svg';
+import Institute from '../assets/icons/institute.svg';
+import Teacher from '../assets/icons/teacher.svg';
 
 
 
@@ -64,5 +68,9 @@ export const IconsUrls = {
     Lock,
     EyeOpen,
     EyeClose,
+    Google,
+    Apple,
+    Institute,
+    Teacher,
  
 };

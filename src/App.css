@@ -5,7 +5,7 @@
 }
 
 .active {
-    color: #3573F9 !important;
+    color: var(--primary-blue) !important;
 }
 
 .active .block {

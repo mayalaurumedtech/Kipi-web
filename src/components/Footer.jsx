@@ -30,7 +30,7 @@ const legalLinks = [
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
-        <div className="bg-[#F4F7FF] pt-2">
+        <div className="bg-secondaryLightBlue02 pt-2">
             <div className={`${styles.container}`}>
                 <div className={styles.innerContainer}>
                     <div className={`${styles.row} py-6`}>
@@ -46,7 +46,7 @@ const Footer = () => {
                             <ul className="flex gap-5 lg:gap-16 flex-wrap">
                                 {footerMenu.map((menu, index) => (
                                     <li key={index}>
-                                        <Link to={menu.path} className="text-gray-700 hover:text-[#3573F9] text-base">{menu.name}</Link>
+                                        <Link to={menu.path} className="text-secondaryGrey01 hover:text-primaryBlue text-base">{menu.name}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -66,14 +66,14 @@ const Footer = () => {
                     <hr />
                     <div className="py-6">
                         <div className={styles.row}>
-                            <p className="text-gray-700 text-base">
+                            <p className="text-secondaryGrey01 text-base">
                                 Copyright © {currentYear} KIPI Pvt Ltd. All Rights Reserved.
                             </p>
                             <div>
                                 <div className="flex gap-2 lg:gap-8 md:gap-3 flex-wrap">
                                     {legalLinks.map((link, index) => (
                                         <div key={index} className="ml-4">
-                                            <Link to={link.path} className="text-gray-700 hover:text-[#3573F9] text-base">{link.name}</Link>
+                                            <Link to={link.path} className="text-secondaryGrey01 hover:text-primaryBlue text-base">{link.name}</Link>
                                         </div>
                                     ))}
                                 </div>

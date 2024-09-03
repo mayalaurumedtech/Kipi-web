@@ -24,15 +24,10 @@
 }
 
 .heading span {
-    font-family: "Bricolage Grotesque", system-ui;
-    font-optical-sizing: auto;
     font-weight: 700;
-    font-style: normal;
 }
 
 .paragraph {
-    font-family: "Bricolage Grotesque", system-ui;
-    font-optical-sizing: auto;
     font-size: 18px;
     font-weight: 300;
     line-height: 28px;
@@ -44,9 +39,9 @@
 }
 
 .infoCard:hover {
-    border: 1px solid #000F5B;
+    border: 1px solid var(--primary-dark-blue);
     border-radius: 16px;
-    box-shadow: 3px 3px 0px 0px rgba(0, 15, 91, 1);
+    box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
     transition: all .3s ease-in-out;
 }
 

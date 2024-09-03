@@ -1,3 +1,16 @@
+.loginPage {
+    display: flex;
+    align-items: center;
+}
+
+.loginRight {
+    padding: 50px;
+}
+
+.loginForm {
+    width: 424px;
+}
+
 .floatingLabelInput {
     position: relative;
 }
@@ -7,8 +20,7 @@
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #aaa;
-    font-size: 20px;
+    color: var(--secondary-grey-01);
 }
 
 .eyeIcon {
@@ -16,51 +28,51 @@
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #aaa;
+    color: var(--secondary-grey-01);
     cursor: pointer;
 }
 
 .inputField {
     width: 100%;
-    padding: 10px 10px 10px 40px; 
+    padding: 10px 10px 10px 40px;
     font-size: 16px;
     font-weight: 500;
-    border: 1px solid #ccc;
+    border: 1px solid var(--secondary-grey-02);
     border-radius: 12px;
     outline: none;
     transition: border-color 0.3s;
 }
 
 .inputField:focus {
-    border-color: #3573F9;
+    border-color: var(--primary-blue);
 }
 
 .inputLabel {
     position: absolute;
     top: 10px;
-    left: 40px; 
+    left: 40px;
     font-size: 16px;
     font-weight: 500;
-    color: #aaa;
+    color: var(--secondary-grey-01);
     pointer-events: none;
     transition: all 0.3s;
-    background-color: white;
+    background-color: var(--primary-white);
     padding: 0 4px;
 }
 
-.inputField:focus + .inputLabel,
-.inputField:not(:placeholder-shown) + .inputLabel {
+.inputField:focus+.inputLabel,
+.inputField:not(:placeholder-shown)+.inputLabel {
     top: -8px;
-    left: 36px; 
+    left: 36px;
     font-size: 14px;
-    color: #3573F9;
+    color: var(--primary-blue);
 }
 
 .submitButton {
     margin-top: 20px;
     padding: 10px 0px;
-    background-color: #3573F9;
-    color: #fff;
+    background-color: var(--primary-blue);
+    color: var(--primary-white);
     border-radius: 12px;
     width: 100%;
     display: flex;
@@ -69,11 +81,11 @@
     cursor: pointer;
     font-weight: 500;
     font-size: 16px;
-    box-shadow: 3px 3px 0px 0px rgba(0, 15, 91, 1);
+    box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
 }
 
 .submitButton:hover {
-    box-shadow: 4px 4px 0px 0px rgba(0, 15, 91, 1);
+    box-shadow: var(--hover-shadow01) var(--primary-dark-blue);
     transform: translateY(-1px);
 }
 
@@ -85,9 +97,9 @@
     appearance: none;
     width: 24px;
     height: 24px;
-    border: 1px solid #ccc;
-    border-radius: 50%; 
-    background-color: #fff;
+    border: 1px solid var(--secondary-grey-02);
+    border-radius: 50%;
+    background-color: var(--primary-white);
     outline: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -95,17 +107,221 @@
 
 /* Checked state */
 .roundedCheckbox:checked {
-    background-color: #3573F9; 
-    border: 1px solid #3573F9;
+    background-color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
     position: relative;
 }
 
 .roundedCheckbox:checked::after {
-    content: '✔'; 
+    content: '✔';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 12px;
-    color: white;
+    color: var(--primary-white);
 }
+
+
+/* Line center text css  */
+.centerLineText {
+    position: relative;
+}
+
+.centerLineText::before {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 100%;
+    height: 3px;
+    background: var(--territory-grey-outline);
+    transform: translateX(-50%);
+}
+
+.centerLineText::after {
+    content: "Or";
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    font-size: 18px;
+    color: var(--primary-black);
+    padding: 0px 10px;
+    background: var(--primary-white);
+    transform: translateX(-50%);
+}
+
+
+.loginBg {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+.loginBgWithButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 1px solid var(--territory-grey-outline);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.OrLine {
+    padding: 40px 0px;
+}
+
+.SelectContinueButton {
+    padding: 12px 28px 12px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--primary-white);
+    background-color: var(--primary-blue);
+    border: 1px solid var(--primary-dark-blue);
+    box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
+}
+
+.SelectContinueButton:hover {
+    box-shadow: var(--hover-shadow01) var(--primary-dark-blue);
+    transform: translateY(-1px);
+}
+
+.modalBox{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 700px;
+}
+
+@media screen and (max-width: 992px) {
+    .loginBg {
+        display: none;
+    }
+
+    .loginPage {
+        justify-content: center;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+    .loginForm {
+        width: 300px;
+    }
+
+    .loginRight {
+        padding: 30px;
+    }
+
+    .inputField {
+        padding: 7px 7px 10px 35px;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .inputIcon {
+        width: 18px;
+    }
+
+    .eyeIcon {
+        width: 18px;
+    }
+
+    .centerLineText::after {
+        bottom: -10px;
+        font-size: 16px;
+    }
+
+    .OrLine {
+        padding: 35px 0px;
+    }
+
+    .loginBgWithButton {
+        gap: 8px;
+        padding: 10px 14px;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+}
+
+
+@media screen and (min-width: 370px) and (max-width: 576px){
+    .modalBox{
+        gap: 20px;
+        width: 280px;
+    }
+
+    .SelectContinueButton {
+        padding: 8px 20px 8px 20px;
+        border-radius: 12px;
+        font-weight: 500;
+        font-size: 12px;
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .modalBox{
+        gap: 20px;
+        width: 350px;
+    }
+
+    .SelectContinueButton {
+        padding: 8px 20px 8px 20px;
+        border-radius: 12px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .modalBox{
+        gap: 32px;
+        width: 500px;
+    }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .loginForm {
+        width: 300px;
+    }
+
+    .loginPage {
+        justify-content: center;
+    }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) and (max-width: 1375px) {
+    .loginForm {
+        width: 350px;
+    }
+
+    .loginPage {
+        justify-content: center;
+    }
+}
+
+
+@media screen and (min-width: 1376px) and (max-width: 1599.98px) {
+    .loginRight {
+        padding: 40px;
+    }
+}
+
+
+/* Extra extra large devices (ultra-wide screens, 1600px and up) */
+@media screen and (min-width: 1600px) {}

@@ -1,0 +1,104 @@
+.imageCheckboxContainer {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    padding: 16px;
+    box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.checkbox {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+    border-radius: 50%;
+    border: 2px solid var(--primary-white);
+    background-color: var(--primary-white);
+    /* Checkbox background color */
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.checkbox:checked {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.checkbox:checked::before {
+    content: '✔';
+    color: var(--primary-white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+}
+
+.image {
+    display: block;
+    width: 150px;
+    height: 150px;
+}
+
+.imageCheckboxContainer:has(.checkbox:checked) {
+    box-shadow: 0px 4px 32px 0px rgba(53, 115, 249, 0.1);
+    border-color: var(--primary-blue);
+    /* Highlight border when checked */
+    background-color: rgba(53, 115, 249, 0.1);
+}
+
+.label {
+    margin-top: 5px;
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+
+@media screen and (min-width: 376px) and (max-width: 576px) {
+    .image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .label {
+        font-size: 14px;
+    }
+
+    .checkbox {
+        width: 18px;
+        height: 18px;
+    }
+
+    .checkbox:checked::before {
+        font-size: 12px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .label {
+        font-size: 16px;
+    }
+
+    .checkbox {
+        width: 18px;
+        height: 18px;
+    }
+
+    .checkbox:checked::before {
+        font-size: 12px;
+    }
+}

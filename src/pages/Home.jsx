@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/home/Header';
 import Career from '../components/home/Career';
 import { ImageUrls } from '../constant/Images';
 import CareerSecond from '../components/home/CareerSecond';
@@ -20,9 +19,9 @@ const Home = () => {
                         <div className={styles.textContainer}>
                             <h3 className={styles.heading}>
                                 We Believe in <br />
-                                <span className="font-bricolage">Potential for Technology</span> <br />
+                                <span>Potential for Technology</span> <br />
                                 to Reshape The <br />
-                                <span className="font-bricolage">Learning Experience.</span>
+                                <span>Learning Experience.</span>
                             </h3>
                             <p className={styles.paragraph}>Join us now as</p>
                             <div className={styles.buttonContainer}>
@@ -49,7 +48,6 @@ const Home = () => {
             </div>
             <div className="container">
                 <div className="innercontainer">
-                    {/* <Header /> */}
                     <Career careerImage={ImageUrls.Career01} />
                     <CareerSecond />
                     <ReviewSlider />

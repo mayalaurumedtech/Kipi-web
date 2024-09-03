@@ -3,7 +3,7 @@
 }
 
 /* .activeLink {
-  color: #3573F9;
+  color: var(--primary-blue);
 } */
 
 /* .linkUnderline {
@@ -35,26 +35,26 @@
   padding: 12px 28px 12px 28px;
   border-radius: 12px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .loginButton {
-  background-color: white;
-  border: 1px solid #000F5B;
-  box-shadow: 3px 3px 0px 0px rgba(0, 15, 91, 1);
+  background-color: var(--primary-white);
+  border: 1px solid var(--primary-dark-blue);
+  box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
 }
 
 .loginButton:hover,
 .signUpButton:hover {
-  box-shadow: 4px 4px 0px 0px rgba(0, 15, 91, 1);
+  box-shadow: var(--hover-shadow01) var(--primary-dark-blue);
   transform: translateY(-1px);
 }
 
 .signUpButton {
-  background-color: #3573F9;
-  color: white;
-  border: 1px solid #000F5B;
-  box-shadow: 3px 3px 0px 0px rgba(0, 15, 91, 1);
+  background-color: var(--primary-blue);
+  color: var(--primary-white);
+  border: 1px solid var(--primary-dark-blue);
+  box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
 }
 
 

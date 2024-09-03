@@ -5,10 +5,7 @@
 }
 
 .heading span {
-    font-family: "Bricolage Grotesque", system-ui;
-    font-optical-sizing: auto;
     font-weight: 700;
-    font-style: normal;
 }
 
 .button {
@@ -17,14 +14,14 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    border: 1px solid #869BB9;
-    background-color: white;
+    border: 1px solid var(--secondary-grey-02);
+    background-color: var(--primary-white);
     border-radius: 0.75rem;
     margin: 0 0.5rem;
     cursor: pointer;
     transition: box-shadow 0.3s, border-color 0.3s;
-    box-shadow: 2px 2px 0px 0px rgba(0, 15, 91, 1);
-    border-color: #000F5B;
+    box-shadow: 2px 2px 0px 0px var(--primary-dark-blue);
+    border-color: var(--primary-dark-blue);
 }
 
 .button.disabled {
@@ -49,14 +46,14 @@
     height: 260px;
     padding: 24px;
     margin: 10px 24px;
-    background-color: white;
-    border: 1px solid #000f5b;
+    background-color: var(--primary-white);
+    border: 1px solid var(--primary-dark-blue);
     border-radius: 16px;
 }
 
 .reviewBox:hover {
-    box-shadow: 4px 4px 0px 0px rgb(0, 15, 91);
-    border-color: #000F5B;
+    box-shadow: var(--hover-shadow01) var(--primary-dark-blue);
+    border-color: var(--primary-dark-blue);
     transition: all .3s ease !important;
 }
 

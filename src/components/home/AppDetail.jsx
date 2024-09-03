@@ -6,7 +6,7 @@ import { IconsUrls } from '../../constant/Icons';
 const AppDetail = ({title, description}) => {
   return (
     <div className={styles.AppDetailBox}>
-        <div className="w-16 h-16 mb-4 border border-[#000F5B] shadow-custom-shadow flex items-center rounded-lg justify-center">
+        <div className="w-16 h-16 mb-4 border border-primaryDarkBlue shadow-custom-shadow02 flex items-center rounded-lg justify-center">
             <img src={IconsUrls.LogoSvg} alt="Logo image" className='h-8' />
         </div>
         <h3 className="text-xl sm:text-2xl font-semibold">KIPI for {title}</h3>

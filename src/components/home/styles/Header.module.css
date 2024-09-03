@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 
 .container {
     position: relative;
@@ -27,12 +26,7 @@
 }
 
 .heading span {
-    font-family: "Bricolage Grotesque", system-ui;
-    font-optical-sizing: auto;
     font-weight: 700;
-    font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
 }
 
 .paragraph {
@@ -57,25 +51,25 @@
 }
 
 .studentButton {
-    background-color: white;
-    border: 1px solid #065f46;
+    background-color: var(--primary-white);
+    border: 1px solid var(--territory-green);
     /* green-700 */
-    box-shadow: 3px 3px 0px 0px rgba(67, 147, 104, 1);
+    box-shadow: var(--custom-shadow01) var(--territory-green);
 }
 
 .studentButton:hover {
-    box-shadow: 4px 4px 0px 0px rgba(67, 147, 104, 1);
+    box-shadow: var(--hover-shadow01) var(--territory-green);
     transform: translateY(-1px);
 }
 
 .parentButton {
-    background-color: #FBF7F3;
-    border: 1px solid #DA8D19;
-    box-shadow: 3px 3px 0px 0px rgba(218, 141, 25, 1);
+    background-color: var(--territory-light-yellow);
+    border: 1px solid var(--territory-yellow);
+    box-shadow: var(--custom-shadow01) var(--territory-yellow);
 }
 
 .parentButton:hover {
-    box-shadow: 4px 4px 0px 0px rgba(218, 141, 25, 1);
+    box-shadow: var(--hover-shadow01) var(--territory-yellow);
     transform: translateY(-1px);
 }
 
