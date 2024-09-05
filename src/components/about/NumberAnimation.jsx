@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { IconsUrls } from '../../utils/constant/Icons';
-import Styles from './Style/NumberAnimation.module.css';
+import Styles from './style/NumberAnimation.module.css';
 
 const NumberList = [
     { img: IconsUrls.School, name: 'School Enroll', endNumber: 658 },
