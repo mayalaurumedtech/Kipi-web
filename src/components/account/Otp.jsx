@@ -103,7 +103,7 @@ const Otp = () => {
                             <p>Your account has been created successfully!</p>
                         </div>
                         <div className="flex justify-center sm:pb-10 pb-5">
-                            <Buttons path="" text="Let’s Start Institute Registration" buttonStyle={Account.SelectContinueButton} alt={"Let’s Start Institute Registration"} />
+                            <Buttons path="/Institute-registration" text="Let’s Start Institute Registration" buttonStyle={Account.SelectContinueButton} alt={"Let’s Start Institute Registration"} />
                         </div>
                     </div>
                 </Modal>

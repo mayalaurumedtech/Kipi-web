@@ -35,6 +35,7 @@ import Institute from '../../assets/icons/institute.svg';
 import Teacher from '../../assets/icons/teacher.svg';
 import User from '../../assets/icons/user.svg';
 import CheckMark from '../../assets/icons/checkmark.gif';
+import Logout from '../../assets/icons/logout.svg';
 
 
 // About Us 
@@ -83,6 +84,7 @@ export const IconsUrls = {
     Teacher,
     User,
     CheckMark,
+    Logout,
     
     // About Us
     StudentsEnroll,

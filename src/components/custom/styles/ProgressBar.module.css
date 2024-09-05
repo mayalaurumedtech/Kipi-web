@@ -1,0 +1,32 @@
+.progressBarContainer {
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.progressBarBackground {
+    background-color: var(--primary-white);
+    height: 4px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.progressBarFill {
+    background-color:var(--primary-blue);
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.progressLabel {
+    font-size: 16px;
+    background-color: var(--primary-dark-blue);
+    color: var(--primary-white);
+    height: 64px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: 600;
+}
+
+.progressLabel span{
+    font-weight: 300;
+}

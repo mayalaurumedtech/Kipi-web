@@ -23,6 +23,18 @@
     margin: 0 auto;
 }
 
+.heading{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.8px;
+}
+
+.paragraph{
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 24px;
+}
+
 .index-bg-img {
     background-position: center;
     background-size: cover;
@@ -31,7 +43,24 @@
     width: 100%;
 }
 
+.cusbuttons {
+    background-color: var(--primary-white);
+    border: 1px solid var(--primary-dark-blue);
+    box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
+}
 
+.cusbuttons:hover,
+.cus-blue-buttons:hover {
+    box-shadow: var(--hover-shadow01) var(--primary-dark-blue);
+    transform: translateY(-1px);
+}
+
+.cus-blue-buttons {
+    background-color: var(--primary-blue);
+    color: var(--primary-white);
+    border: 1px solid var(--primary-dark-blue);
+    box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
+}
 
 
 /* Extra small devices (portrait phones, less than 576px) */
