@@ -1,0 +1,111 @@
+/* Otp css  */
+.otpInput {
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    font-size: 20px;
+    background-color: var(--secondary-grey-03);
+    border-radius: 8px;
+}
+
+.otpInput:focus {
+    background-color: var(--primary-white);
+    border: 1px solid rgba(53, 115, 249, 1);
+    outline: none;
+}
+
+.invalidInput {
+    border-color: #dc3545;
+}
+
+/* Modal css  */
+.modalBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 561px;
+    gap: 32px;
+}
+
+.innerBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerBox img{
+    width: 80px;
+    height: 80px;
+}
+.innerBox h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+.innerBox p{
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+
+    .otpInput {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .modalBox {
+        width: 295px !important;
+        gap: 8px !important;
+        text-align: center;
+    }
+
+    .innerBox img{
+        width: 55px !important;
+        height: 55px !important;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+
+    .otpInput {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+
+    .modalBox {
+        width: 350px;
+        gap: 20px;
+    }
+
+    .innerBox img{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+
+    .otpInput {
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+
+    .modalBox {
+        width: 480px;
+        gap: 25px;
+    }
+
+    .innerBox img{
+        width: 70px;
+        height: 70px;
+    }
+}

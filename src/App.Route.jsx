@@ -6,6 +6,7 @@ import Login from './components/account/Login';
 import CreateAccount from './components/account/CreateAccount';
 import About from './components/about/About';
 import Layout from './components/shared/Layout';
+import Otp from './components/account/Otp';
 
 
 const AppRoute = () => {
@@ -15,6 +16,7 @@ const AppRoute = () => {
                 <Route path="/" >
                     <Route path="login" element={<Login />} />
                     <Route path="create-account" element={<CreateAccount />} />
+                    <Route path="otp" element={<Otp />} />
                     <Route  element={<Layout />}>
                         <Route exact path='/' element={<Home />} />
                         <Route exact path='/About' element={<About />} />

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { ImageUrls } from '../../utils/constant/Images';
 import { Link } from 'react-router-dom';
-import styles from './styles/Login.module.css';
+import Account from './styles/Account.module.css';
 import { IconsUrls } from '../../utils/constant/Icons';
 import Modal from '../custom/Modal';
 import ImageCheckbox from '../custom/ImageCheckbox';
 import Buttons from '../custom/Buttons';
+import InputField from '../custom/InputField';
 
 
 const LoginWithList = [
@@ -30,8 +31,8 @@ const CreateAccount = () => {
         let validationErrors = {};
 
         // Name Validation
-        if (!formData.fistName) {
-            validationErrors.fistName = 'First Name is required';
+        if (!formData.firstName) {
+            validationErrors.firstName = 'First Name is required';
         }
         // Name Validation
         if (!formData.lastName) {
@@ -43,6 +44,11 @@ const CreateAccount = () => {
             validationErrors.email = 'Email is required';
         } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)) {
             validationErrors.email = 'Email address is invalid';
+        }
+
+        // Number Validation
+        if (!formData.number) {
+            validationErrors.number = 'Number is required';
         }
 
         // Password Validation
@@ -84,11 +90,11 @@ const CreateAccount = () => {
 
     return (
         <div>
-            <div className={styles.loginPage}>
+            <div className={Account.loginPage}>
                 <div>
-                    <img src={ImageUrls.Loginbg} alt="Login bg image" className={styles.loginBg} />
+                    <img src={ImageUrls.Loginbg} alt="Login bg image" className={Account.loginBg} />
                 </div>
-                <div className={styles.loginRight}>
+                <div className={Account.loginRight}>
                     <Link to="/">
                         <h1 className="text-3xl font-bold gap-2 mb-2 inline-flex">
                             <img src={IconsUrls.LogoSvg} alt="KIPI logo" className="h-8 w-fit" />
@@ -97,105 +103,78 @@ const CreateAccount = () => {
                     </Link>
                     <h2 className="text-2xl font-semibold py-1">Create an Account</h2>
                     <p className="text-base font-light">Provide few below personal info to continue...</p>
-                    <form className={`pt-6 ${styles.loginForm}`} onSubmit={handleSubmit}>
+                    <form className={`pt-6 ${Account.loginForm}`} onSubmit={handleSubmit}>
                         {/* fist Name */}
                         <div className="pb-4">
-                            <div className={styles.floatingLabelInput}>
-                                <img src={IconsUrls.User} className={styles.inputIcon} />
-                                <input
-                                    type="text"
-                                    id="text"
-                                    name="fistName"
-                                    placeholder=" "
-                                    className={styles.inputField}
-                                    value={formData.fistName}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="fistName" className={styles.inputLabel}>First Name*</label>
-                            </div>
-                            {errors.fistName && <div className="text-territoryRed">{errors.fistName}</div>}
+                            <InputField
+                                label="First Name*"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                error={errors.firstName}
+                                icon={IconsUrls.User}
+                            />
                         </div>
 
                         {/* Last Name */}
                         <div className="pb-4">
-                            <div className={styles.floatingLabelInput}>
-                                <img src={IconsUrls.User} className={styles.inputIcon} />
-                                <input
-                                    type="text"
-                                    id="text"
-                                    name="lastName"
-                                    placeholder=" "
-                                    className={styles.inputField}
-                                    value={formData.lastName}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="lastName" className={styles.inputLabel}>Last Name*</label>
-                            </div>
-                            {errors.lastName && <div className="text-territoryRed">{errors.lastName}</div>}
+                            <InputField
+                                label="Last Name*"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                error={errors.lastName}
+                                icon={IconsUrls.User}
+                            />
                         </div>
 
                         {/* Email Input */}
                         <div className="pb-4">
-                            <div className={styles.floatingLabelInput}>
-                                <img src={IconsUrls.Email} className={styles.inputIcon} />
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder=" "
-                                    className={`${styles.inputField} ${errors.email ? styles.invalidInput : ''}`}
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="email" className={styles.inputLabel}>Email*</label>
-                            </div>
-                            {errors.email && <div className="text-territoryRed">{errors.email}</div>}
+                            <InputField
+                                label="Email*"
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                error={errors.email}
+                                icon={IconsUrls.Email}
+                            />
                         </div>
 
                         {/* Mobile Number */}
                         <div className="pb-4">
-                            <div className={styles.floatingLabelInput}>
-                                <img src={IconsUrls.User} className={styles.inputIcon} />
-                                <input
-                                    type="number"
-                                    id="number"
-                                    name="number"
-                                    placeholder=" "
-                                    className={styles.inputField}
-                                    value={formData.number}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="number" className={styles.inputLabel}>Mobile*</label>
-                            </div>
-                            {errors.lastName && <div className="text-territoryRed">{errors.lastName}</div>}
+                            <InputField
+                                label="Mobile*"
+                                name="number"
+                                type="number"
+                                value={formData.number}
+                                onChange={handleChange}
+                                error={errors.number}
+                                icon={IconsUrls.Phone}
+                            />
                         </div>
 
                         {/* Password Input */}
                         <div className="pb-4">
-                            <div className={styles.floatingLabelInput}>
-                                <img src={IconsUrls.Lock} className={styles.inputIcon} />
-                                <input
-                                    type={passwordVisible ? "text" : "password"}
-                                    id="password"
-                                    name="password"
-                                    placeholder=" "
-                                    className={`${styles.inputField} ${errors.password ? styles.invalidInput : ''}`}
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="password" className={styles.inputLabel}>Password*</label>
-                                <div className={styles.eyeIcon} onClick={togglePasswordVisibility}>
-                                    {passwordVisible ? <img src={IconsUrls.EyeOpen} /> : <img src={IconsUrls.EyeClose} />}
-                                </div>
-                            </div>
-                            {errors.password && <div className="text-territoryRed">{errors.password}</div>}
+                            <InputField
+                                label="Password*"
+                                name="password"
+                                type="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                error={errors.password}
+                                icon={IconsUrls.Lock}
+                                isPassword={true}
+                                togglePasswordVisibility={togglePasswordVisibility}
+                                isPasswordVisible={passwordVisible}
+                            />
                         </div>
 
                         <div className="flex justify-between flex-wrap">
                             <div className="flex gap-2 items-center pb-1">
                                 <input
                                     type="checkbox"
-                                    className={styles.roundedCheckbox}
+                                    className={Account.roundedCheckbox}
                                 />
                                 <label htmlFor="rememberMe" className="text-sm font-light">
                                     Stay logged in
@@ -206,17 +185,17 @@ const CreateAccount = () => {
                             </Link>
                         </div>
 
-                        <Buttons path="" text="Login" buttonStyle={styles.submitButton} alt={"Login"} />
+                        <Buttons type="submit" path="/otp" text="Login" buttonStyle={Account.submitButton} alt={"Login"} />
                     </form>
 
-                    <div className={styles.OrLine}>
-                        <h3 className={styles.centerLineText}></h3>
+                    <div className={Account.OrLine}>
+                        <h3 className={Account.centerLineText}></h3>
                     </div>
 
                     <div>
                         {
                             LoginWithList.map((item, index) => (
-                                <Link key={index} className={styles.loginBgWithButton} onClick={openModal}>
+                                <Link key={index} className={Account.loginBgWithButton} onClick={openModal}>
                                     <img src={item.image} alt={item.name} className="h-5 sm:h-6 w-auto" />
                                     {item.name}
                                 </Link>
@@ -233,8 +212,8 @@ const CreateAccount = () => {
             {isModalOpen && (
                 <Modal isOpen={isModalOpen} onClose={closeModal}>
                     <div>
-                        <h2 className="text-xl font-bold mb-5 sm:mb-10 text-center">Your User Type</h2>
-                        <div className={styles.modalBox}>
+                        <h2 className="text-lg sm:text-xl font-bold mb-5 sm:mb-10 text-center">Your User Type</h2>
+                        <div className={Account.modalBox}>
                             <ImageCheckbox
                                 src={IconsUrls.Institute}
                                 label="Institute"
@@ -248,8 +227,8 @@ const CreateAccount = () => {
                                 onChange={handleCheckboxChange('checkbox2')}
                             />
                         </div>
-                        <div className="text-center pt-6 sm:pt-12 sm:pb-10 pb-5">
-                            <Buttons path="" text="Select & Continue" buttonStyle={styles.SelectContinueButton} alt={"Select & Continue"} />
+                        <div className="flex justify-center pt-6 sm:pt-12 sm:pb-10 pb-5">
+                            <Buttons path="" text="Select & Continue" buttonStyle={Account.SelectContinueButton} alt={"Select & Continue"} />
                         </div>
                     </div>
                 </Modal>

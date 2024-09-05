@@ -34,6 +34,8 @@ import Apple from '../../assets/icons/apple.svg';
 import Institute from '../../assets/icons/institute.svg';
 import Teacher from '../../assets/icons/teacher.svg';
 import User from '../../assets/icons/user.svg';
+import CheckMark from '../../assets/icons/checkmark.gif';
+
 
 // About Us 
 import StudentsEnroll from '../../assets/icons/students-enroll.svg';
@@ -80,6 +82,7 @@ export const IconsUrls = {
     Institute,
     Teacher,
     User,
+    CheckMark,
     
     // About Us
     StudentsEnroll,

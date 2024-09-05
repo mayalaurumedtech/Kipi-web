@@ -19,7 +19,6 @@ import User3 from '../../assets/images/use3.png';
 import Loginbg from '../../assets/images/login-bg.webp';
 
 
-
 export const ImageUrls = {
 
   // header images 

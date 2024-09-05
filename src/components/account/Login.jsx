@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { ImageUrls } from '../../utils/constant/Images';
 import { Link } from 'react-router-dom';
-import styles from './styles/Login.module.css';
+import Account from './styles/Account.module.css';
 import { IconsUrls } from '../../utils/constant/Icons';
 import Modal from '../custom/Modal';
 import ImageCheckbox from '../custom/ImageCheckbox';
 import Buttons from '../custom/Buttons';
+import InputField from '../custom/InputField';
 
 
 const LoginWithList = [
@@ -75,11 +76,11 @@ const Login = () => {
 
     return (
         <div>
-            <div className={styles.loginPage}>
+            <div className={Account.loginPage}>
                 <div>
-                    <img src={ImageUrls.Loginbg} alt="Login bg image" className={styles.loginBg} />
+                    <img src={ImageUrls.Loginbg} alt="Login bg image" className={Account.loginBg} />
                 </div>
-                <div className={styles.loginRight}>
+                <div className={Account.loginRight}>
                     <Link to="/">
                         <h1 className="text-3xl font-bold gap-2 mb-2 inline-flex">
                             <img src={IconsUrls.LogoSvg} alt="KIPI logo" className="h-8 w-fit" />
@@ -88,51 +89,41 @@ const Login = () => {
                     </Link>
                     <h2 className="text-2xl font-semibold py-1">Login</h2>
                     <p className="text-base font-light">to continue to KIPI</p>
-                    <form className={`pt-6 ${styles.loginForm}`} onSubmit={handleSubmit}>
+                    <form className={`pt-6 ${Account.loginForm}`} onSubmit={handleSubmit}>
                         {/* Email Input */}
                         <div className="pb-4">
-                            <div className={styles.floatingLabelInput}>
-                                <img src={IconsUrls.Email} className={styles.inputIcon} />
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder=" "
-                                    className={`${styles.inputField} ${errors.email ? styles.invalidInput : ''}`}
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="email" className={styles.inputLabel}>Email*</label>
-                            </div>
-                            {errors.email && <div className="text-territoryRed">{errors.email}</div>}
+                            <InputField
+                                label="Email*"
+                                name="email"
+                                type="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                error={errors.email}
+                                icon={IconsUrls.Email}
+                            />
                         </div>
 
                         {/* Password Input */}
                         <div className="pb-4">
-                            <div className={styles.floatingLabelInput}>
-                                <img src={IconsUrls.Lock} className={styles.inputIcon} />
-                                <input
-                                    type={passwordVisible ? "text" : "password"}
-                                    id="password"
-                                    name="password"
-                                    placeholder=" "
-                                    className={`${styles.inputField} ${errors.password ? styles.invalidInput : ''}`}
-                                    value={formData.password}
-                                    onChange={handleChange}
-                                />
-                                <label htmlFor="password" className={styles.inputLabel}>Password*</label>
-                                <div className={styles.eyeIcon} onClick={togglePasswordVisibility}>
-                                    {passwordVisible ? <img src={IconsUrls.EyeOpen} /> : <img src={IconsUrls.EyeClose} />}
-                                </div>
-                            </div>
-                            {errors.password && <div className="text-territoryRed">{errors.password}</div>}
+                            <InputField
+                                label="Password*"
+                                name="password"
+                                type="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                error={errors.password}
+                                icon={IconsUrls.Lock}
+                                isPassword={true}
+                                togglePasswordVisibility={togglePasswordVisibility}
+                                isPasswordVisible={passwordVisible}
+                            />
                         </div>
 
                         <div className="flex justify-between flex-wrap">
                             <div className="flex gap-2 items-center pb-1">
                                 <input
                                     type="checkbox"
-                                    className={styles.roundedCheckbox}
+                                    className={Account.roundedCheckbox}
                                 />
                                 <label htmlFor="rememberMe" className="text-sm font-light">
                                     Stay logged in
@@ -143,17 +134,17 @@ const Login = () => {
                             </Link>
                         </div>
 
-                        <Buttons path="" text="submit" buttonStyle={styles.submitButton} alt={"submit"} />
+                        <Buttons path="" text="submit" buttonStyle={Account.submitButton} alt={"submit"} />
                     </form>
 
-                    <div className={styles.OrLine}>
-                        <h3 className={styles.centerLineText}></h3>
+                    <div className={Account.OrLine}>
+                        <h3 className={Account.centerLineText}></h3>
                     </div>
 
                     <div>
                         {
                             LoginWithList.map((item, index) => (
-                                <Link key={index} className={styles.loginBgWithButton}>
+                                <Link key={index} className={Account.loginBgWithButton}>
                                     <img src={item.image} alt={item.name} className="h-5 sm:h-6 w-auto" />
                                     {item.name}
                                 </Link>
@@ -170,8 +161,8 @@ const Login = () => {
             {isModalOpen && (
                 <Modal isOpen={isModalOpen} onClose={closeModal}>
                     <div>
-                        <h2 className="text-xl font-bold mb-5 sm:mb-10 text-center">Your User Type</h2>
-                        <div className={styles.modalBox}>
+                        <h2 className="text-lg sm:text-xl font-bold mb-5 sm:mb-10 text-center">Your User Type</h2>
+                        <div className={Account.modalBox}>
                             <ImageCheckbox
                                 src={IconsUrls.Institute}
                                 label="Institute"
@@ -185,8 +176,8 @@ const Login = () => {
                                 onChange={handleCheckboxChange('checkbox2')}
                             />
                         </div>
-                        <div className="text-center pt-6 sm:pt-12 sm:pb-10 pb-5">
-                            <Buttons path="" text="Select & Continue"  buttonStyle={styles.SelectContinueButton}  alt={"Select & Continue"} />
+                        <div className="flex justify-center pt-6 sm:pt-12 sm:pb-10 pb-5">
+                            <Buttons type="submit" path="/create-account" text="Select & Continue" buttonStyle={Account.SelectContinueButton} alt={"Select & Continue"} />
                         </div>
                     </div>
                 </Modal>

@@ -1,0 +1,56 @@
+.floatingLabelInput {
+    position: relative;
+}
+
+.inputIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-grey-01);
+}
+
+.eyeIcon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-grey-01);
+    cursor: pointer;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid var(--secondary-grey-02);
+    border-radius: 12px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.inputField:focus {
+    border-color: var(--primary-blue);
+}
+
+.inputLabel {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--secondary-grey-01);
+    pointer-events: none;
+    transition: all 0.3s;
+    background-color: var(--primary-white);
+    padding: 0 4px;
+}
+
+.inputField:focus+.inputLabel,
+.inputField:not(:placeholder-shown)+.inputLabel {
+    top: -8px;
+    left: 36px;
+    font-size: 14px;
+    color: var(--primary-blue);
+}
