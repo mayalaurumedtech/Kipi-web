@@ -1,0 +1,330 @@
+
+.container {
+    position: relative;
+    background-size: cover;
+    z-index: 10;
+    height: 880px;
+}
+
+.innerContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.textContainer {
+    position: absolute;
+    top: 23%;
+    left: 2%;
+}
+
+.heading {
+    font-size: 50px;
+    line-height: 80px;
+}
+
+.heading span {
+    font-weight: 700;
+}
+
+.paragraph {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.studentButton {
+    background-color: var(--primary-white);
+    border: 1px solid var(--territory-green);
+    /* green-700 */
+    box-shadow: var(--custom-shadow01) var(--territory-green);
+}
+
+.studentButton:hover {
+    box-shadow: var(--hover-shadow01) var(--territory-green);
+    transform: translateY(-1px);
+}
+
+.parentButton {
+    background-color: var(--territory-light-yellow);
+    border: 1px solid var(--territory-yellow);
+    box-shadow: var(--custom-shadow01) var(--territory-yellow);
+}
+
+.parentButton:hover {
+    box-shadow: var(--hover-shadow01) var(--territory-yellow);
+    transform: translateY(-1px);
+}
+
+.vector01,
+.vector02,
+.star,
+.cap {
+    position: absolute;
+}
+
+.vector01 {
+    bottom: 0;
+    right: 16%;
+    width: 453px;
+    height: auto;
+    z-index: 10;
+}
+
+.vector02 {
+    bottom: 0;
+    right: 6%;
+    width: 280px;
+    /* 60px * 4 = 240px */
+    height: auto;
+}
+
+.star {
+    top: 23%;
+    right: 40%;
+    width: 96px;
+    /* 24px * 4 = 96px */
+    height: auto;
+}
+
+.cap {
+    bottom: 16%;
+    right: 48%;
+    width: 176px;
+    /* 44px * 4 = 176px */
+    height: auto;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 575.98px) {
+
+    .container {
+        height: 600px;
+    }
+
+    .textContainer {
+        top: 20%;
+    }
+
+    .heading {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .container {
+        height: 650px;
+    }
+
+    .textContainer {
+        top: 22%;
+    }
+
+    .heading {
+        font-size: 35px;
+        line-height: 50px;
+    }
+
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .container {
+        height: 650px;
+    }
+
+    .textContainer {
+        top: 20%;
+    }
+
+    .heading {
+        font-size: 40px;
+        line-height: 55px;
+    }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .textContainer {
+        top: 20%;
+    }
+
+    .heading {
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+
+    .vector01 {
+        right: 17%;
+        width: 275px;
+    }
+
+    .star {
+        top: 35%;
+        right: 40%;
+        width: 75px;
+    }
+
+    .cap {
+        bottom: 17%;
+        right: 48%;
+        width: 130px;
+    }
+
+    .vector02 {
+        bottom: 0;
+        right: 8%;
+        width: 165px;
+    }
+
+    .container {
+        height: 700px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) and (max-width: 1375px) {
+
+    .textContainer {
+        top: 20%;
+    }
+
+    .heading {
+        font-size: 45px;
+        line-height: 70px;
+    }
+
+    .heading span {
+        font-size: 45px;
+    }
+
+    .vector01 {
+        right: 17%;
+        width: 350px;
+    }
+
+    .cap {
+        bottom: 17%;
+        right: 48%;
+        width: 130px;
+    }
+
+    .vector02 {
+        bottom: 0;
+        right: 10%;
+        width: 180px;
+    }
+
+    .container {
+        height: 700px;
+    }
+}
+
+@media screen and (min-width: 1376px) and (max-width: 1599.98px) {
+
+    .textContainer {
+        top: 20%;
+    }
+
+    .heading {
+        font-size: 50px;
+        line-height: 75px;
+    }
+
+    .vector01 {
+        right: 18%;
+        width: 400px;
+    }
+
+    .cap {
+        bottom: 17%;
+        right: 48%;
+        width: 150px;
+    }
+
+    .star {
+        top: 27%;
+        right: 41%;
+        width: 80px;
+    }
+
+    .vector02 {
+        bottom: 0;
+        right: 10%;
+        width: 200px;
+    }
+
+    .container {
+        height: 750px;
+    }
+
+}
+
+/* Extra extra large devices (ultra-wide screens, 1600px and up) */
+@media screen and (min-width: 1600px) {}
+
+
+
+
+/* Animation for the vector02 element */
+@keyframes rotateVector02 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.vector02 {
+    animation: rotateVector02 90s linear infinite;
+}
+
+/* Animation for the star element */
+@keyframes rotateStar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.star {
+    animation: rotateStar 2s linear infinite;
+}
+
+/* Animation for the cap element */
+@keyframes bounceCap {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.cap {
+    animation: bounceCap 2s ease-in-out infinite;
+}

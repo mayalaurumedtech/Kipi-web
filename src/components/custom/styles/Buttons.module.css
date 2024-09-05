@@ -1,0 +1,18 @@
+.Buttons {
+    padding: 12px 28px 12px 28px;
+    border-radius: 12px;
+    display: flex;
+    width: fit-content;
+    gap: 8px;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    /* box-shadow: var(--custom-shadow01) var(--primary-dark-blue); */
+}
+
+/* .Buttons:hover {
+    box-shadow: var(--hover-shadow01);
+    transform: translateY(-1px);
+} */

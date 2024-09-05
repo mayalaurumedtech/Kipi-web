@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/DownloadApp.module.css';
 import { Link } from 'react-router-dom';
-import { IconsUrls } from '../../constant/Icons';
+import { IconsUrls } from '../../utils/constant/Icons';
 
 const AppDetail = ({title, description}) => {
   return (

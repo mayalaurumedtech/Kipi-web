@@ -1,0 +1,98 @@
+.NumberAnimation {
+    background-color: var(--secondary-light-blue-02);
+    margin: 100px 0px;
+    padding: 100px 0px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 16px;
+}
+
+.NumberBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid var(--territory-grey-outline);
+    padding: 0px 130px;
+}
+
+.NumberBox:last-child {
+    border-right: none;
+}
+
+.NumberBox img {
+    width: 72px;
+    height: 72px;
+}
+
+.NumberBox h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.NumberBox h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media screen and (max-width: 640px) {
+    .NumberBox {
+        padding: 0px 40px;
+        margin-bottom: 30px;
+        border-right: none;
+    }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .NumberBox {
+        padding: 0px 40px;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .NumberBox {
+        padding: 0px 40px;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .NumberBox {
+        padding: 0px 50px;
+    }
+}
+
+
+@media screen and (max-width: 1280px) {
+    .NumberBox {
+        padding: 0px 60px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) and (max-width: 1375px) {
+    .NumberBox {
+        padding: 0px 80px;
+    }
+}
+
+
+@media screen and (min-width: 1376px) and (max-width: 1599.98px) {
+    .NumberBox {
+        padding: 0px 90px;
+    }
+}
+
+
+/* Extra extra large devices (ultra-wide screens, 1600px and up) */
+@media screen and (min-width: 1600px) {}

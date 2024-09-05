@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles/Career.module.css';
-import { ImageUrls } from '../../constant/Images';
-import { IconsUrls } from '../../constant/Icons';
+import { ImageUrls } from '../../utils/constant/Images';
+import { IconsUrls } from '../../utils/constant/Icons';
 
 const CareerSecond = () => {
 

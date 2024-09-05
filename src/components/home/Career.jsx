@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles/Career.module.css';
-import { IconsUrls } from '../../constant/Icons';
+import { IconsUrls } from '../../utils/constant/Icons';
 
 const Career = ({ careerImage }) => {
 

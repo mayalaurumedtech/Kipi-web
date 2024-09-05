@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './styles/ReviewSlider.module.css';
 import { TfiAngleLeft, TfiAngleRight } from "react-icons/tfi";
-import useSlideCounter from '../../custom/useSlideCounter';
-import { ImageUrls } from '../../constant/Images';
+import useSlideCounter from '../custom/useSlideCounter';
+import { ImageUrls } from '../../utils/constant/Images';
 
 // Move the ReviewInfo array here before using it in the hook
 const ReviewInfo = [

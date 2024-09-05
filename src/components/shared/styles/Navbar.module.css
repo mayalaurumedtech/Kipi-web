@@ -1,0 +1,41 @@
+.navLink {
+  position: relative;
+}
+
+.button {
+  font-weight: 600;
+  border-radius: 0.375rem;
+  /* Rounded-lg */
+}
+
+.loginButton,
+.signUpButton {
+  border-radius: 12px;
+}
+
+.loginButton {
+  background-color: var(--primary-white);
+  border: 1px solid var(--primary-dark-blue);
+  box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
+}
+
+.loginButton:hover,
+.signUpButton:hover {
+  box-shadow: var(--hover-shadow01) var(--primary-dark-blue);
+  transform: translateY(-1px);
+}
+
+.signUpButton {
+  background-color: var(--primary-blue);
+  color: var(--primary-white);
+  border: 1px solid var(--primary-dark-blue);
+  box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.mobileMenuVisible {
+  display: block;
+}
