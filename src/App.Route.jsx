@@ -7,8 +7,8 @@ import CreateAccount from './components/account/CreateAccount';
 import About from './components/about/About';
 import Layout from './components/shared/Layout';
 import Otp from './components/account/Otp';
-import InstituteRegistration from './components/InstituteRegistration/InstituteRegistration';
 import InstituteRegistrationLayout from './components/shared/InstituteRegistrationLayout';
+import InstituteRegistration from './components/InstituteRegistration/InstituteRegistration';
 
 
 const AppRoute = () => {
@@ -25,7 +25,7 @@ const AppRoute = () => {
                     </Route>
 
                     <Route  element={<InstituteRegistrationLayout />}> 
-                        <Route exact path='/Institute-registration' element={<InstituteRegistration />} />
+                        <Route exact path='/institute-registration' element={<InstituteRegistration />} />
                     </Route>
                 </Route>
             </Routes>

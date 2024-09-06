@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Buttons from '../custom/Buttons';
 import ProgressBar from '../custom/ProgressBar';
 import Information from './Information';
 import Organization from './organization';
