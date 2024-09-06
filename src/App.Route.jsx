@@ -8,7 +8,7 @@ import About from './components/about/About';
 import Layout from './components/shared/Layout';
 import Otp from './components/account/Otp';
 import InstituteRegistrationLayout from './components/shared/InstituteRegistrationLayout';
-import InstituteRegistration from './components/instituteRegistration/InstituteRegistration.jsx';
+import InstituteRegistration from './components/InstituteRegistration/InstituteRegistration.jsx';
 
 
 const AppRoute = () => {
