@@ -1,5 +1,6 @@
 .floatingLabelInput {
     position: relative;
+    width: 100%;
 }
 
 .inputIcon {
@@ -8,6 +9,8 @@
     top: 50%;
     transform: translateY(-50%);
     color: var(--secondary-grey-01);
+    width: 18px;
+    height: 18px;
 }
 
 .eyeIcon {
@@ -47,7 +50,9 @@
     padding: 0 4px;
 }
 
+
 .inputField:focus+.inputLabel,
+.inputField.hasValue + .inputLabel,
 .inputField:not(:placeholder-shown)+.inputLabel {
     top: -8px;
     left: 36px;
@@ -55,3 +60,83 @@
     color: var(--primary-blue);
 }
 
+/* .dropdownWrapper {
+    position: relative;
+} */
+
+.dropdownMenu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.arrowIcon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+.dropdownItem {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdownItem:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdownContainer {
+    position: relative;
+  }
+  
+  .dropdownLabel {
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .dropdownWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .dropdownInput {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .arrowIcon {
+    font-size: 12px;
+  }
+  
+  .dropdownMenu {
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+    z-index: 10;
+  }
+  
+  .dropdownItem {
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  
+  .dropdownItem:hover {
+    background-color: #f0f0f0;
+  }
+  

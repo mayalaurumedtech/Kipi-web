@@ -18,6 +18,11 @@ import User3 from '../../assets/images/use3.png';
 // Login Image 
 import Loginbg from '../../assets/images/login-bg.webp';
 
+// institute registration 
+import LogoPlaceholder from '../../assets/images/logo_placeholder.jpg';
+import BannerPlaceholder from '../../assets/images/banner_placeholder.jpg';
+import InstituteBanner from '../../assets/images/institute-banner.jpg';
+
 
 export const ImageUrls = {
 
@@ -27,7 +32,7 @@ export const ImageUrls = {
   vector02,
   star,
   cap,
-  
+
   // Career Images
   Career01,
   Career02,
@@ -38,8 +43,14 @@ export const ImageUrls = {
   User2,
   User3,
 
-// Login Image 
+  // Login Image 
   Loginbg,
+
+  // institute registration 
+  LogoPlaceholder,
+  BannerPlaceholder,
+  InstituteBanner,
+
 
 };
 

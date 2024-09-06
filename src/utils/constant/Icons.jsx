@@ -44,6 +44,21 @@ import TeacherBoard from '../../assets/icons/teacher-board.svg';
 import StudentCap from '../../assets/icons/student-cap.svg';
 import School from '../../assets/icons/school.svg';
 
+// institute registration 
+import UploadImageSvg from '../../assets/icons/upload_image.svg';
+import Location from '../../assets/icons/location.svg';
+import Pincode from '../../assets/icons/pincode.svg';
+import City from '../../assets/icons/city.svg';
+import CountryGlobal from '../../assets/icons/country_global.svg';
+import StateMap from '../../assets/icons/state_map.svg';
+import Timer from '../../assets/icons/timer.svg';
+import InstituteSvg from '../../assets/icons/institute-svg.svg';
+import ButtonSwichOpen from '../../assets/icons/button-swich-1.svg';
+import ButtonSwichClose from '../../assets/icons/button-swich-2.svg';
+import ArrowDown from '../../assets/icons/arrowdown.svg';
+import ArrowUp from '../../assets/icons/arrowup.svg';
+import ArrowLeft from '../../assets/icons/arrowleft.svg';
+import ArrowRight from '../../assets/icons/arrowright.svg';
 
 
 export const IconsUrls = {
@@ -91,5 +106,21 @@ export const IconsUrls = {
     TeacherBoard,
     StudentCap,
     School,
+
+    // institute registration 
+    UploadImageSvg,
+    Location,
+    Pincode,
+    City,
+    CountryGlobal,
+    StateMap,
+    Timer,
+    InstituteSvg,
+    ButtonSwichOpen,
+    ButtonSwichClose,
+    ArrowDown,
+    ArrowUp,
+    ArrowLeft,
+    ArrowRight,
  
 };
