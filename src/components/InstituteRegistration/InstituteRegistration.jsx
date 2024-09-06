@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ProgressBar from '../custom/ProgressBar';
 import Information from './Information';
-import Organization from './organization';
+import Organization from './Organization';
 import Boards from './Boards';
 
 const InstituteRegistration = () => {
