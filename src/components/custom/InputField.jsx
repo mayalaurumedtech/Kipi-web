@@ -9,12 +9,14 @@ const InputField = ({
   value,
   onChange,
   placeholder = " ",
+  inputStyles,
   error,
   icon,
   onIconClick,
   togglePasswordVisibility,
   isPassword = false,
-  isPasswordVisible = false
+  isPasswordVisible = false,
+  disabled = false // Ensure disabled is used
 }) => {
   return (
     <>
@@ -24,9 +26,10 @@ const InputField = ({
           type={isPassword ? (isPasswordVisible ? "text" : "password") : type}
           name={name}
           placeholder={placeholder}
-          className={styles.inputField}
+          className={`${styles.inputField} ${inputStyles}`}
           value={value}
           onChange={onChange}
+          disabled={disabled} // Apply the disabled prop
         />
         <label htmlFor={name} className={styles.inputLabel}>{label}</label>
         {isPassword && (
@@ -39,5 +42,6 @@ const InputField = ({
     </>
   );
 };
+
 
 export default InputField;

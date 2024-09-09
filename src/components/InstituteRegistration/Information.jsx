@@ -1,219 +1,253 @@
-import React, { useState, useEffect } from 'react';
-import Buttons from '../custom/Buttons';
+import React, { useState } from 'react';
+import axios from 'axios';
+import InputField from '../custom/InputField'; // Import your custom input field
+import Buttons from '../custom/Buttons'; // Import your custom button component
 import ImageUpload from '../custom/ImageUpload';
-import styles from './style/Information.module.css';
+import SwitchToggleButton from '../custom/SwitchToggleButton'; // Import your switch toggle button
 import { ImageUrls } from '../../utils/constant/Images';
-import InputField from '../custom/InputField';
 import { IconsUrls } from '../../utils/constant/Icons';
-import InputDropdown from '../custom/InputDropdown';
-import States from '../../utils/constant/States';
-import Countries from '../../utils/constant/Countries';
-import Cities from '../../utils/constant/Cities';
+
+const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const Information = ({ handleNextStep }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    password: '',
     number: '',
+    aboutInstitute: '',
     addressLine1: '',
     addressLine2: '',
     pincode: '',
+    city: '',
+    state: '',
+    country: 'India', // Default to India
+    workingDays: daysOfWeek.reduce((acc, day) => {
+      acc[`${day.toLowerCase()}TimeFrom`] = '';
+      acc[`${day.toLowerCase()}TimeTo`] = '';
+      acc[`${day.toLowerCase()}Active`] = false;
+      return acc;
+    }, {}),
   });
+
   const [errors, setErrors] = useState({});
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [selectedState, setSelectedState] = useState('');
-  const [selectedCountry, setSelectedCountry] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
-
-  useEffect(() => {
-    // Reset state and city when country changes
-    setSelectedState('');
-    setSelectedCity('');
-  }, [selectedCountry]);
-
-  useEffect(() => {
-    // Reset city when state changes
-    setSelectedCity('');
-  }, [selectedState]);
-
-  const handleStateSelect = (option) => {
-    setSelectedState(option.value);
-    // Optionally, you can also update the cities based on the selected state
-  };
-
-  const handleCountrySelect = (option) => {
-    setSelectedCountry(option.value);
-  };
-
-  const handleCitySelect = (option) => {
-    setSelectedCity(option.value);
-  };
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const validate = () => {
-    let validationErrors = {};
+  const handleToggleChange = (day) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      workingDays: {
+        ...prevFormData.workingDays,
+        [`${day.toLowerCase()}Active`]: !prevFormData.workingDays[`${day.toLowerCase()}Active`],
+      },
+    }));
+  };
 
-    // Name Validation
-    if (!formData.firstName) {
-      validationErrors.firstName = 'First Name is required';
-    }
-    if (!formData.lastName) {
-      validationErrors.lastName = 'Last Name is required';
-    }
+  const handlePincodeChange = async (e) => {
+    const pincode = e.target.value;
+    setFormData({ ...formData, pincode });
 
-    // Email Validation
-    if (!formData.email) {
-      validationErrors.email = 'Email is required';
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)) {
-      validationErrors.email = 'Email address is invalid';
-    }
+    if (pincode.length === 6) {
+      setLoading(true);
+      try {
+        const response = await axios.get(`https://api.postalpincode.in/pincode/${pincode}`);
+        const data = response.data[0];
 
-    // Number Validation
-    if (!formData.number) {
-      validationErrors.number = 'Number is required';
+        if (data.Status === 'Success') {
+          const postOfficeData = data.PostOffice[0];
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            addressLine2: postOfficeData.Name,
+            city: postOfficeData.District,
+            state: postOfficeData.State,
+            country: postOfficeData.Country || 'India',
+          }));
+          setErrors({});
+        } else {
+          setErrors({ pincode: 'Invalid Pincode' });
+        }
+      } catch (error) {
+        setErrors({ pincode: 'Error fetching pincode data' });
+      }
+      setLoading(false);
     }
-
-    // Password Validation
-    if (!formData.password) {
-      validationErrors.password = 'Password is required';
-    } else if (formData.password.length < 8) {
-      validationErrors.password = 'Password must be at least 8 characters long';
-    }
-
-    return validationErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const validationErrors = validate();
+    const validationErrors = {}; // Add your form validation logic
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      // Handle form submission 
-      console.log("Form submitted successfully");
+      console.log('Form submitted successfully');
+      handleNextStep();
     }
   };
 
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
   return (
-    <div>
-      <div className="flex justify-between items-center sm:pt-8 pt-4">
-        <div>
-          <h2 className="heading">Institute Information</h2>
-          <p className="paragraph">Join us and unlock a world of possibilities!</p>
+    <div className="p-4 md:p-8 lg:p-12">
+      <h2 className="text-xl font-semibold mb-4">Institute Information</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+          <div>
+            <h2 className="text-2xl font-bold">Institute Information</h2>
+            <p className="text-gray-600">Join us and unlock a world of possibilities!</p>
+          </div>
+          <div className="flex justify-end">
+            <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
+          </div>
         </div>
-        {/* Button to go to the next step */}
-        <div className="flex justify-end">
-          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
-        </div>
-      </div>
 
-      <div className="flex gap-3 sm:gap-7 justify-around pt-3 sm:pt-6 pb-3 sm:pb-7">
-        <ImageUpload ImgStyle={styles.bannerImg} PlaceholderImage={ImageUrls.BannerPlaceholder} />
-        <ImageUpload ImgStyle={styles.logoImg} PlaceholderImage={ImageUrls.LogoPlaceholder} />
-      </div>
-
-      <div className="flex flex-col gap-3 sm:gap-6">
-        <div className="grid grid-flow-col gap-3 sm:gap-6">
-          <InputField
-            label="Institute Name*"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            error={errors.firstName}
-            icon={IconsUrls.InstituteSvg}
-          />
-          <InputField
-            label="Email*"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            error={errors.email}
-            icon={IconsUrls.Email}
-          />
-          <InputField
-            label="Mobile*"
-            name="number"
-            type="number"
-            value={formData.number}
-            onChange={handleChange}
-            error={errors.number}
-            icon={IconsUrls.Phone}
-          />
+        <div className="flex flex-wrap gap-4 mb-6">
+          <ImageUpload ImgStyle="w-full sm:w-1/2 sm:w-1/3" PlaceholderImage={ImageUrls.BannerPlaceholder} />
+          <ImageUpload ImgStyle="w-full sm:w-1/2 sm:w-1/3" PlaceholderImage={ImageUrls.LogoPlaceholder} />
         </div>
-        <div>
+
+        <div className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <InputField
+              label="Institute Name*"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              error={errors.firstName}
+            />
+            <InputField
+              label="Email*"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              error={errors.email}
+            />
+            <InputField
+              label="Mobile*"
+              name="number"
+              type="number"
+              value={formData.number}
+              onChange={handleChange}
+              error={errors.number}
+            />
+          </div>
           <InputField
-            name="addressLine1"
-            value={formData.addressLine1}
+            name="aboutInstitute"
+            value={formData.aboutInstitute}
             onChange={handleChange}
             placeholder="About Institute"
-            error={errors.addressLine1}
+            error={errors.aboutInstitute}
+            inputStyles="h-24"
           />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <InputField
+              label="Address line 1*"
+              name="addressLine1"
+              value={formData.addressLine1}
+              onChange={handleChange}
+              error={errors.addressLine1}
+              icon={IconsUrls.Location}
+            />
+            <InputField
+              label="Address line 2*"
+              name="addressLine2"
+              value={formData.addressLine2}
+              onChange={handleChange}
+              error={errors.addressLine2}
+              icon={IconsUrls.Location}
+            />
+            <div>
+              <InputField
+                label="Pincode*"
+                name="pincode"
+                type="number"
+                value={formData.pincode}
+                onChange={handlePincodeChange}
+                error={errors.pincode}
+                icon={IconsUrls.Pincode}
+              />
+              {loading && <p>Loading location details...</p>}
+            </div>
+          {/* </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"> */}
+            <InputField
+              label="City*"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              error={errors.city}
+              icon={IconsUrls.City}
+            />
+            <InputField
+              label="State*"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              error={errors.state}
+              icon={IconsUrls.State}
+            />
+            <InputField
+              label="Country*"
+              name="country"
+              value={formData.country}
+              onChange={handleChange}
+              error={errors.country}
+              icon={IconsUrls.CountryGlobal}
+            />
+          </div>
         </div>
-        <div className="grid grid-flow-col gap-3 sm:gap-6">
-          <InputField
-            label="Address line 1*"
-            name="addressLine1"
-            value={formData.addressLine1}
-            onChange={handleChange}
-            error={errors.addressLine1}
-            icon={IconsUrls.Location}
-          />
-          <InputField
-            label="Address line 2*"
-            name="addressLine2"
-            value={formData.addressLine2}
-            onChange={handleChange}
-            error={errors.addressLine2}
-            icon={IconsUrls.Location}
-          />
-          <InputField
-            label="Pincode*"
-            name="pincode"
-            type="number"
-            value={formData.pincode}
-            onChange={handleChange}
-            error={errors.pincode}
-            icon={IconsUrls.Pincode}
-          />
+
+        <hr className="my-6 border-gray-300" />
+
+        <h3 className="text-lg font-semibold mb-4">Working Days <span className="font-normal">(Optional)</span></h3>
+        <div className="flex flex-col gap-4">
+          {daysOfWeek.map((day, index) => (
+            <div key={index} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-baseline">
+              <div>
+                <h4 className='text-md font-semibold'>{day}</h4>
+              </div>
+              <div>
+                <SwitchToggleButton
+                  isActive={formData.workingDays[`${day.toLowerCase()}Active`]}
+                  onChange={() => handleToggleChange(day)}
+                  id={`${day.toLowerCase()}Toggle`}
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <InputField
+                  label="Time from*"
+                  type="time"
+                  name={`${day.toLowerCase()}TimeFrom`}
+                  value={formData.workingDays[`${day.toLowerCase()}TimeFrom`]}
+                  onChange={handleChange}
+                  error={errors[`${day.toLowerCase()}TimeFrom`]}
+                  icon={IconsUrls.TimeFrom}
+                  disabled={!formData.workingDays[`${day.toLowerCase()}Active`]} // Disable if not active
+                />
+
+                <InputField
+                  label="Time To*"
+                  type="time"
+                  name={`${day.toLowerCase()}TimeTo`}
+                  value={formData.workingDays[`${day.toLowerCase()}TimeTo`]}
+                  onChange={handleChange}
+                  error={errors[`${day.toLowerCase()}TimeTo`]}
+                  icon={IconsUrls.TimeTo}
+                  disabled={!formData.workingDays[`${day.toLowerCase()}Active`]} // Disable if not active
+                />
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="grid grid-flow-col gap-3 sm:gap-6">
-          {/* <InputDropdown
-            label="Country*"
-            name="country"
-            value={Countries.find(country => country.value === selectedCountry)} // Pre-selected value
-            options={Object.entries(Countries).map(([key, label]) => ({ value: key, label }))}
-            onSelectOption={handleCountrySelect}
-            icon={IconsUrls.CountryGlobal}
-          /> */}
-          <InputDropdown
-            label="State*"
-            name="state"
-            value={States[selectedCountry]?.find(state => state.value === selectedState)} // Pre-selected value
-            options={States[selectedCountry] || []}
-            onSelectOption={handleStateSelect}
-            icon={IconsUrls.States}
-          />
-          <InputDropdown
-            label="City*"
-            name="city"
-            value={Cities[selectedState]?.find(city => city.value === selectedCity)} // Pre-selected value
-            options={Cities[selectedState] || []}
-            onSelectOption={handleCitySelect}
-            icon={IconsUrls.City}
-          />
+
+        <div className="flex justify-end mt-6">
+          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
         </div>
-      </div>
+      </form>
     </div>
   );
 };

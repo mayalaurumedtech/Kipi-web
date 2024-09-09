@@ -59,6 +59,8 @@ import ArrowDown from '../../assets/icons/arrowdown.svg';
 import ArrowUp from '../../assets/icons/arrowup.svg';
 import ArrowLeft from '../../assets/icons/arrowleft.svg';
 import ArrowRight from '../../assets/icons/arrowright.svg';
+import TimeFrom from '../../assets/icons/time-from.svg';
+import TimeTo from '../../assets/icons/time-to.svg';
 
 
 export const IconsUrls = {
@@ -122,5 +124,7 @@ export const IconsUrls = {
     ArrowUp,
     ArrowLeft,
     ArrowRight,
+    TimeFrom,
+    TimeTo,
  
 };
