@@ -6,6 +6,7 @@ import ImageUpload from '../custom/ImageUpload';
 import SwitchToggleButton from '../custom/SwitchToggleButton'; // Import your switch toggle button
 import { ImageUrls } from '../../utils/constant/Images';
 import { IconsUrls } from '../../utils/constant/Icons';
+import styles from './style/Information.module.css';
 
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
@@ -98,14 +99,14 @@ const Information = ({ handleNextStep }) => {
             <h2 className="text-2xl font-bold">Institute Information</h2>
             <p className="text-gray-600">Join us and unlock a world of possibilities!</p>
           </div>
-          <div className="flex justify-end">
+          <div className="justify-end hidden xl:flex">
             <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
           </div>
         </div>
 
         <div className="flex flex-wrap gap-4 mb-6">
-          <ImageUpload ImgStyle="w-full sm:w-1/2 sm:w-1/3" PlaceholderImage={ImageUrls.BannerPlaceholder} />
-          <ImageUpload ImgStyle="w-full sm:w-1/2 sm:w-1/3" PlaceholderImage={ImageUrls.LogoPlaceholder} />
+          <ImageUpload ImgStyle="w-full" PlaceholderImage={ImageUrls.BannerPlaceholder} />
+          <ImageUpload ImgStyle="w-full" PlaceholderImage={ImageUrls.LogoPlaceholder} />
         </div>
 
         <div className="flex flex-col gap-4">
@@ -171,8 +172,7 @@ const Information = ({ handleNextStep }) => {
               />
               {loading && <p>Loading location details...</p>}
             </div>
-          {/* </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"> */}
+          
             <InputField
               label="City*"
               name="city"
@@ -205,9 +205,9 @@ const Information = ({ handleNextStep }) => {
         <h3 className="text-lg font-semibold mb-4">Working Days <span className="font-normal">(Optional)</span></h3>
         <div className="flex flex-col gap-4">
           {daysOfWeek.map((day, index) => (
-            <div key={index} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-baseline">
+            <div key={index} className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 items-center ${styles.workingDays}`}>
               <div>
-                <h4 className='text-md font-semibold'>{day}</h4>
+                <h4 className='text-base font-medium'>{day}</h4>
               </div>
               <div>
                 <SwitchToggleButton
@@ -217,20 +217,23 @@ const Information = ({ handleNextStep }) => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
                 <InputField
                   label="Time from*"
                   type="time"
+                  inputStyles="lg:w-40 w-full"
                   name={`${day.toLowerCase()}TimeFrom`}
                   onChange={handleChange}
                   error={errors[`${day.toLowerCase()}TimeFrom`]}
                   icon={IconsUrls.TimeFrom}
                   disabled={!formData.workingDays[`${day.toLowerCase()}Active`]} // Disable if not active
                 />
-
+              </div>
+              <div>
                 <InputField
                   label="Time To*"
                   type="time"
+                  inputStyles="lg:w-40 w-full"
                   name={`${day.toLowerCase()}TimeTo`}
                   onChange={handleChange}
                   error={errors[`${day.toLowerCase()}TimeTo`]}
@@ -242,7 +245,7 @@ const Information = ({ handleNextStep }) => {
           ))}
         </div>
 
-        <div className="flex justify-end mt-6">
+        <div className="flex justify-end mt-6 xl:hidden">
           <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
         </div>
       </form>

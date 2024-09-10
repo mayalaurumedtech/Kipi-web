@@ -19,7 +19,7 @@ const ImageCheckbox = ({ src, id, label, checked, onChange }) => {
             <img
                 src={src}
                 alt={label}
-                className={styles.image}
+                className={styles.image} 
                  // Add click handler to image
             />
             <label className={styles.label}>{label}</label>

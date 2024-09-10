@@ -1,0 +1,81 @@
+/* Default checkbox style */
+.roundedCheckbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--secondary-grey-02);
+    border-radius: 50%;
+    background-color: var(--primary-white);
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+
+/* .roundedCheckbox:hover {
+    background-color: #e6f0ff; 
+    border-color: var(--primary-blue); 
+} */
+ 
+
+.roundedCheckbox:checked {
+    background-color: var(--primary-blue); 
+    border-color: var(--primary-blue);
+    position: relative;
+    margin-left: 16px;
+}
+
+.roundedCheckbox:checked::after {
+    content: '✔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    color: var(--primary-white); 
+}
+
+.checkboxContainer:has(.roundedCheckbox:checked){
+    background-color: var(--primary-white);
+    border-radius: 16px 0px 0px 16px;
+    position: relative;
+}
+
+.checkboxContainer:has(.roundedCheckbox:checked)::after{
+    content: '';
+    position: absolute;
+    border-left: 2px solid var(--primary-blue);
+    height: 40px;
+}
+
+.roundedCheckbox:checked + .svg{
+    background-color: var(--secondary-light-blue-02);
+    border: none;
+}
+
+.roundedCheckbox:checked + .svg svg {
+    fill: var(--primary-blue) !important; 
+}
+
+
+.svg{
+    border: 1px solid var(--territory-grey-outline);
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg svg {
+    fill: var(--secondary-grey-02);
+    width: 24px;
+    height: 24px;
+}
+
+/* .checkboxContainer:hover svg {
+    fill: var(--primary-blue); 
+} */

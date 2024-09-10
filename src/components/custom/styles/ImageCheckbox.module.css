@@ -37,8 +37,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 14px;
+    transform: translate(-50%, -50%) rotate(10deg);
+    font-size: 12px;
 }
 
 .image {
@@ -78,7 +78,7 @@
     }
 
     .checkbox:checked::before {
-        font-size: 12px;
+        font-size: 10px;
     }
 }
 

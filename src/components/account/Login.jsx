@@ -21,6 +21,11 @@ const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selected, setSelected] = useState(null);
+    const [checked, setChecked] = useState(false);
+
+    const handleCheckbox = () => {
+        setChecked(!checked);
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -123,7 +128,8 @@ const Login = () => {
                             <div className="flex gap-2 items-center pb-1">
                                 <input
                                     type="checkbox"
-                                    className={Account.roundedCheckbox}
+                                    className="roundedCheckbox"
+                                    onChange={handleCheckbox}
                                 />
                                 <label htmlFor="rememberMe" className="text-sm font-light">
                                     Stay logged in

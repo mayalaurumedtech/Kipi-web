@@ -61,6 +61,11 @@ import ArrowLeft from '../../assets/icons/arrowleft.svg';
 import ArrowRight from '../../assets/icons/arrowright.svg';
 import TimeFrom from '../../assets/icons/time-from.svg';
 import TimeTo from '../../assets/icons/time-to.svg';
+import PrePrimary from '../../assets/icons/pre-primary.svg';
+import SchoolGraySvg from '../../assets/icons/school-gray.svg';
+import CollegeGraySvg from '../../assets/icons/college-gray.svg';
+import ExamFile from '../../assets/icons/exam-file.svg';
+
 
 
 export const IconsUrls = {
@@ -126,5 +131,9 @@ export const IconsUrls = {
     ArrowRight,
     TimeFrom,
     TimeTo,
+    PrePrimary,
+    SchoolGraySvg,
+    CollegeGraySvg,
+    ExamFile,
  
 };

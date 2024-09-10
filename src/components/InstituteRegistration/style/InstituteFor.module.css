@@ -1,0 +1,31 @@
+.mainBox{
+    display: flex;
+    margin-top: 24px;
+    margin-bottom: 51px;
+}
+
+.leftBox{
+    width: 424px;
+    height: 680px;
+    background-color: var(--secondary-grey-03);
+    border-radius: 24px 0px 0px 24px;
+    padding: 48px 0px 0px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.leftBox > div{
+    padding: 24px 16px 24px 0px;
+    display: flex;
+    gap: 16px;
+}
+
+.leftBox label{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--secondary-grey-02);
+    line-height: 21.6px;
+}
+
+

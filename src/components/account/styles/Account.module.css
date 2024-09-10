@@ -27,38 +27,6 @@
 }
 
 
-/* Hide the default checkbox */
-.roundedCheckbox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border: 1px solid var(--secondary-grey-02);
-    border-radius: 50%;
-    background-color: var(--primary-white);
-    outline: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* Checked state */
-.roundedCheckbox:checked {
-    background-color: var(--primary-blue);
-    border: 1px solid var(--primary-blue);
-    position: relative;
-}
-
-.roundedCheckbox:checked::after {
-    content: '✔';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 12px;
-    color: var(--primary-white);
-}
-
 
 /* Line center text css  */
 .centerLineText {
