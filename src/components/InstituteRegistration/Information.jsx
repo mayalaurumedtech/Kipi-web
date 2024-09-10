@@ -222,7 +222,6 @@ const Information = ({ handleNextStep }) => {
                   label="Time from*"
                   type="time"
                   name={`${day.toLowerCase()}TimeFrom`}
-                  value={formData.workingDays[`${day.toLowerCase()}TimeFrom`]}
                   onChange={handleChange}
                   error={errors[`${day.toLowerCase()}TimeFrom`]}
                   icon={IconsUrls.TimeFrom}
@@ -233,7 +232,6 @@ const Information = ({ handleNextStep }) => {
                   label="Time To*"
                   type="time"
                   name={`${day.toLowerCase()}TimeTo`}
-                  value={formData.workingDays[`${day.toLowerCase()}TimeTo`]}
                   onChange={handleChange}
                   error={errors[`${day.toLowerCase()}TimeTo`]}
                   icon={IconsUrls.TimeTo}
