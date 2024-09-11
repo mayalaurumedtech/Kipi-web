@@ -22,6 +22,9 @@ import Loginbg from '../../assets/images/login-bg.webp';
 import LogoPlaceholder from '../../assets/images/logo_placeholder.jpg';
 import BannerPlaceholder from '../../assets/images/banner_placeholder.jpg';
 import InstituteBanner from '../../assets/images/institute-banner.jpg';
+import gsebBorad from '../../assets/images/board/borad_gseb.png';
+import cbseBoard from '../../assets/images/board/board_cbse.png';
+import icseBoard from '../../assets/images/board/board_icse.png';
 
 
 export const ImageUrls = {
@@ -50,6 +53,9 @@ export const ImageUrls = {
   LogoPlaceholder,
   BannerPlaceholder,
   InstituteBanner,
+  gsebBorad,
+  cbseBoard,
+  icseBoard,
 
 
 };

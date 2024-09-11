@@ -3,44 +3,55 @@ import Buttons from '../custom/Buttons';
 import InputCheckbox from '../custom/InputCheckbox';
 import { Svg } from '../../utils/constant/Svg';
 import mainStyle from './style/InstituteFor.module.css';
+import DefaultOrganization from './DefaultOrganization';
+import School from './School';
+import College from './College';
+import { ImageUrls } from '../../utils/constant/Images';
+
+const OrganizationList = [
+  {
+    id:1,
+    type: 'prePrimary',
+    svg: Svg.PrePrimary,
+    label: 'Pre Primary',
+  },
+  {
+    id:2,
+    type: 'school',
+    svg: Svg.SchoolGraySvg,
+    label: 'School',
+  },
+  {
+    id:3,
+    type: 'college',
+    svg: Svg.CollegeGraySvg,
+    label: 'College',
+  },
+  {
+    id:4,
+    type: 'competitiveExam',
+    svg: Svg.ExamFile,
+    label: 'Competitive Exam',
+  }
+];
+
+
 
 const Organization = ({ handleNextStep, handlePrevStep }) => {
-  const [selectedOptions, setSelectedOptions] = useState({
-    prePrimary: false,
-    school: false,
-    college: false,
-    competitiveExam: false,
-  });
-
-  // State to manage the selected option for the right-side tab
-  const [selectedOption, setSelectedOption] = useState(null);
-
+  const [selectedOptions, setSelectedOptions] = useState(0);
+ 
   // Handler for each checkbox
-  const handleCheckboxChange = (option) => {
-    setSelectedOptions((prev) => ({
-      ...prev,
-      [option]: !prev[option],
-    }));
-
-    // Set the selected option for the right-side tab
-    setSelectedOption(option);
+  const handleCheckboxChange = (id) => {
+    setSelectedOptions(id); 
   };
 
   // Render content for the right-side tab based on the selected option
   const renderRightBoxContent = () => {
-    switch (selectedOption) {
-      case 'prePrimary':
-        return <p>Details about Pre Primary.</p>;
-      case 'school':
-        return <p>Details about School.</p>;
-      case 'college':
-        return <p>Details about College.</p>;
-      case 'competitiveExam':
-        return <p>Details about Competitive Exam.</p>;
-      default:
-        return <p>Select an option to see details.</p>;
-    }
+   return <School organizationId={ selectedOptions} />
   };
+  const isOptionSelectd=(id)=>{
+    return id==selectedOptions
+  }
 
   return (
     <>
@@ -57,38 +68,20 @@ const Organization = ({ handleNextStep, handlePrevStep }) => {
 
       <div className={mainStyle.mainBox}>
         <div className={mainStyle.leftBox}>
-          {/* Pre Primary Checkbox */}
-          <InputCheckbox
-            checked={selectedOptions.prePrimary}
-            onChange={() => handleCheckboxChange('prePrimary')}
-            svg={Svg.PrePrimary}
-            label="Pre Primary"
-            borderLeft="ml-4"
-          />
-          {/* School Checkbox */}
-          <InputCheckbox
-            checked={selectedOptions.school}
-            onChange={() => handleCheckboxChange('school')}
-            svg={Svg.SchoolGraySvg}
-            label="School"
-            borderLeft="ml-4"
-          />
-          {/* College Checkbox */}
-          <InputCheckbox
-            checked={selectedOptions.college}
-            onChange={() => handleCheckboxChange('college')}
-            svg={Svg.CollegeGraySvg}
-            label="College"
-            borderLeft="ml-4"
-          />
-          {/* Competitive Exam Checkbox */}
-          <InputCheckbox
-            checked={selectedOptions.competitiveExam}
-            onChange={() => handleCheckboxChange('competitiveExam')}
-            svg={Svg.ExamFile}
-            label="Competitive Exam"
-            borderLeft="ml-4"
-          />
+          {OrganizationList.map((organization, index) => (
+            <InputCheckbox
+              key={index}
+              checked={isOptionSelectd(organization.id)}
+              onChange={() => handleCheckboxChange(organization.id)}
+              svg={organization.svg}
+              
+              label={organization.label}
+              borderLeft="ml-4"
+              checkboxContainer="checkboxContainer"
+              isActive={isOptionSelectd(organization.id)}
+            />
+          ))}
+
         </div>
         <div className={mainStyle.rightBox}>
           {/* Render content based on selected option */}
