@@ -25,6 +25,9 @@ import InstituteBanner from '../../assets/images/institute-banner.jpg';
 import gsebBorad from '../../assets/images/board/borad_gseb.png';
 import cbseBoard from '../../assets/images/board/board_cbse.png';
 import icseBoard from '../../assets/images/board/board_icse.png';
+import gtuUniverse from '../../assets/images/university/board_gtu.png';
+import guUniverse from '../../assets/images/university/board_gu.png';
+import ldcUniverse from '../../assets/images/university/board_gls.png';
 
 
 export const ImageUrls = {
@@ -56,6 +59,10 @@ export const ImageUrls = {
   gsebBorad,
   cbseBoard,
   icseBoard,
+  gtuUniverse,
+  guUniverse,
+  ldcUniverse,
+ 
 
 
 };

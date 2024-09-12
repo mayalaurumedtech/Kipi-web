@@ -14,12 +14,6 @@
 }
 
 
-/* .roundedCheckbox:hover {
-    background-color: #e6f0ff; 
-    border-color: var(--primary-blue); 
-} */
- 
-
 .roundedCheckbox:checked {
     background-color: var(--primary-blue); 
     border-color: var(--primary-blue);
@@ -63,7 +57,3 @@
     width: 24px;
     height: 24px;
 }
-
-/* .checkboxContainer:hover svg {
-    fill: var(--primary-blue); 
-} */

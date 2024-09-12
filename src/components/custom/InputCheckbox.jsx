@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import styles from './styles/InputCheckbox.module.css'; // Import the CSS file for styling
 
-const InputCheckbox = ({ checked, onChange, label, svg, borderLeft, checkboxContainer, titalText, peraText,isActive }) => {
+const InputCheckbox = ({ checked, onChange, label, svg, borderLeft, checkboxContainer, titalText, peraText,isActive, lineClamp }) => {
   
 
     return (
@@ -23,11 +23,11 @@ const InputCheckbox = ({ checked, onChange, label, svg, borderLeft, checkboxCont
                 </label>
             )}
             {titalText && (
-                <div>
+                <div className="input-title-box">
                     <h3 className="title">
                         {titalText}
                     </h3>
-                    <p className="paragraph2">{peraText}</p>
+                    <p className={`paragraph2 ${lineClamp}`}>{peraText}</p>
                 </div>
             )}
         </div>

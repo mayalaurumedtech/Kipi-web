@@ -4,7 +4,7 @@ import { Svg } from '../../utils/constant/Svg';
 const DefaultOrganization = () => {
     return (
         <div className="flex justify-center items-center flex-col h-full">
-            <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="grid grid-cols-2 gap-4 mb-6 checkboxContainer">
                 <div className="svg">{Svg.PrePrimary}</div>
                 <div className="svg">{Svg.SchoolGraySvg}</div>
                 <div className="svg">{Svg.CollegeGraySvg}</div>

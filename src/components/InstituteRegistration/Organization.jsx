@@ -1,57 +1,156 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Buttons from '../custom/Buttons';
 import InputCheckbox from '../custom/InputCheckbox';
 import { Svg } from '../../utils/constant/Svg';
 import mainStyle from './style/InstituteFor.module.css';
 import DefaultOrganization from './DefaultOrganization';
 import School from './School';
-import College from './College';
 import { ImageUrls } from '../../utils/constant/Images';
 
-const OrganizationList = [
+const initialOrganizations = [
   {
-    id:1,
+    id: 1,
     type: 'prePrimary',
     svg: Svg.PrePrimary,
     label: 'Pre Primary',
+    selected: false
   },
   {
-    id:2,
+    id: 2,
     type: 'school',
     svg: Svg.SchoolGraySvg,
     label: 'School',
+    selected: false
   },
   {
-    id:3,
+    id: 3,
     type: 'college',
     svg: Svg.CollegeGraySvg,
     label: 'College',
+    selected: false
   },
   {
-    id:4,
+    id: 4,
     type: 'competitiveExam',
     svg: Svg.ExamFile,
     label: 'Competitive Exam',
+    selected: false
   }
 ];
 
-
+const initialBoardList = [
+  {
+    id: 1,
+    board: 'gsebBoards',
+    img: ImageUrls.gsebBorad,
+    title: 'G.S.E.B',
+    peraText: 'Gujarat Secondary and Higher Secondary Education Board',
+    organizationId: 2, // Related to 'School'
+    selected: false
+  },
+  {
+    id: 2,
+    board: 'cbseBoards',
+    img: ImageUrls.cbseBoard,
+    title: 'C.B.S.E',
+    peraText: 'Central Board of Secondary Education',
+    organizationId: 2, // Related to 'School'
+    selected: false
+  },
+  {
+    id: 3,
+    board: 'icseBoards',
+    img: ImageUrls.icseBoard,
+    title: 'ICSE/ISC',
+    peraText: 'Indian Certificate of Secondary Education/Indian School Certificate',
+    organizationId: 2, // Related to 'School'
+    selected: false
+  },
+  {
+    id: 4,
+    board: 'gtuUniverse',
+    img: ImageUrls.gtuUniverse,
+    title: 'G.T.U',
+    peraText: 'Gujarat Secondary and Higher Secondary Education Board',
+    organizationId: 3, // Related to 'College'
+    selected: false
+  },
+  {
+    id: 5,
+    board: 'guUniverse',
+    img: ImageUrls.guUniverse,
+    title: 'G.U',
+    peraText: 'Central Board of Secondary Education',
+    organizationId: 3, // Related to 'College'
+    selected: false
+  },
+  {
+    id: 6,
+    board: 'ldcUniverse',
+    img: ImageUrls.ldcUniverse,
+    title: 'L.D. College ',
+    peraText: 'Indian Certificate of Secondary Education/Indian School Certificate',
+    organizationId: 3, // Related to 'College'
+    selected: false
+  },
+ 
+];
 
 const Organization = ({ handleNextStep, handlePrevStep }) => {
-  const [selectedOptions, setSelectedOptions] = useState(0);
- 
-  // Handler for each checkbox
-  const handleCheckboxChange = (id) => {
-    setSelectedOptions(id); 
+  const [selectedOrganization, setSelectedOrganization] = useState(null);
+  const [organizations, setOrganizations] = useState(initialOrganizations);
+  const [boardList, setBoardList] = useState(initialBoardList);
+
+  useEffect(() => {
+    // Update organization selection based on board selection
+    const updatedOrganizations = organizations.map(org => {
+      const hasSelectedBoards = boardList.some(board => board.organizationId === org.id && board.selected);
+      return { ...org, selected: hasSelectedBoards };
+    });
+    setOrganizations(updatedOrganizations);
+  }, [boardList]);
+
+  const handleCheckboxChangeBoard = (boardId) => {
+    let orgId=null;
+    const updatedBoardList = boardList.map(board =>{
+      if( board.id === boardId ){
+        // setCurrentOrganisation(board.organizationId)
+        orgId=board.organizationId;
+        return  { ...board, selected: !board.selected }
+      }
+      return board;
+    }
+    );
+    if(orgId){
+      const updatedOrganizations = organizations.map((org) => {
+        if (orgId === org.id) {
+          return { ...org, selected: !org.selected };
+        }
+        return org;
+      });
+      setOrganizations(updatedOrganizations);
+    }
+    setBoardList(updatedBoardList);
   };
 
-  // Render content for the right-side tab based on the selected option
-  const renderRightBoxContent = () => {
-   return <School organizationId={ selectedOptions} />
+  const handleCheckboxChangeOrg = (id) => {
+    const updatedOrganizations = organizations.map((org) => {
+      if (id === org.id) {
+        setSelectedOrganization(org.id);
+        // return { ...org, selected: !org.selected };
+      }
+      return org;
+    });
+    setOrganizations(updatedOrganizations);
   };
-  const isOptionSelectd=(id)=>{
-    return id==selectedOptions
-  }
+
+  const renderRightBoxContent = () => {
+    if (selectedOrganization) {
+      const filteredBoardList = boardList.filter(board => board.organizationId === selectedOrganization);
+      return <School schoolBoardList={filteredBoardList} handleCheckboxChangeBoard={handleCheckboxChangeBoard} />;
+    }
+    return <DefaultOrganization />;
+  };
 
   return (
     <>
@@ -68,23 +167,20 @@ const Organization = ({ handleNextStep, handlePrevStep }) => {
 
       <div className={mainStyle.mainBox}>
         <div className={mainStyle.leftBox}>
-          {OrganizationList.map((organization, index) => (
+          {organizations.map((organization, index) => (
             <InputCheckbox
               key={index}
-              checked={isOptionSelectd(organization.id)}
-              onChange={() => handleCheckboxChange(organization.id)}
+              checked={organization.selected}
+              onChange={() => handleCheckboxChangeOrg(organization.id)}
               svg={organization.svg}
-              
               label={organization.label}
               borderLeft="ml-4"
               checkboxContainer="checkboxContainer"
-              isActive={isOptionSelectd(organization.id)}
+              isActive={selectedOrganization === organization.id}
             />
           ))}
-
         </div>
         <div className={mainStyle.rightBox}>
-          {/* Render content based on selected option */}
           {renderRightBoxContent()}
         </div>
       </div>
