@@ -7,7 +7,7 @@ import DefaultOrganization from './DefaultOrganization';
 import { ImageUrls } from '../../utils/constant/Images';
 import Medium from './Medium';
 
-const initialOrganizations = [
+const initialBoards = [
   {
     id: 1,
     type: 'prePrimary',
@@ -34,116 +34,149 @@ const initialOrganizations = [
   }
 ];
 
-const initialBoardList = [
+const initialMediumList = [
   {
     id: 1,
-    board: 'gsebBoards',
-    img: ImageUrls.gsebBorad,
-    title: 'G.S.E.B',
-    peraText: 'Gujarat Secondary and Higher Secondary Education Board',
-    organizationId: 2, // Related to 'School'
-    selected: false
+    Medium: 'cbseBoards',
+    title: 'Gujarati Medium',
+    BoardId: 2, 
+    selected: false,
+    content: <p>This is the content for section 1.</p>,
   },
   {
     id: 2,
-    board: 'cbseBoards',
-    img: ImageUrls.cbseBoard,
-    title: 'C.B.S.E',
-    peraText: 'Central Board of Secondary Education',
-    organizationId: 2, // Related to 'School'
+    Medium: 'cbseBoards',
+    title: 'Hindi Medium',
+    content: <p>This is the content for section 1.</p>,
+    BoardId: 2, 
     selected: false
   },
   {
     id: 3,
-    board: 'icseBoards',
-    img: ImageUrls.icseBoard,
-    title: 'ICSE/ISC',
-    peraText: 'Indian Certificate of Secondary Education/Indian School Certificate',
-    organizationId: 2, // Related to 'School'
+    Medium: 'icseBoards',
+    title: 'English Medium',
+    content: <p>This is the content for section 1.</p>,
+    BoardId: 2, 
     selected: false
   },
   {
     id: 4,
-    board: 'gtuUniverse',
-    img: ImageUrls.gtuUniverse,
+    Medium: 'gtuUniverse',
     title: 'G.T.U',
-    peraText: 'Gujarat Secondary and Higher Secondary Education Board',
-    organizationId: 3, // Related to 'College'
+    BoardId: 3, 
     selected: false
   },
   {
     id: 5,
-    board: 'guUniverse',
-    img: ImageUrls.guUniverse,
+    Medium: 'guUniverse',
     title: 'G.U',
-    peraText: 'Central Board of Secondary Education',
-    organizationId: 3, // Related to 'College'
+    BoardId: 3, 
     selected: false
   },
   {
     id: 6,
-    board: 'ldcUniverse',
-    img: ImageUrls.ldcUniverse,
+    Medium: 'ldcUniverse',
     title: 'L.D. College ',
-    peraText: 'Indian Certificate of Secondary Education/Indian School Certificate',
-    organizationId: 3, // Related to 'College'
+    BoardId: 3, 
     selected: false
   },
 
 ];
 
+const initialClassList = [
+  {
+    id: 1,
+    type: 'prePrimary',
+    svg: Svg.PrePrimary,
+    label: 'Pre Primary',
+    MediumId: 2,
+    selected: false
+  },
+  {
+    id: 2,
+    type: 'Primary',
+    svg: Svg.PrePrimary,
+    label: 'Primary',
+    selected: false,
+    MediumId: 2,
+
+  },
+  {
+    id: 3,
+    type: 'Secondary',
+    svg: Svg.PrePrimary,
+    label: 'Secondary',
+    MediumId: 2,
+
+    selected: false
+  },
+  {
+    id: 4,
+    type: 'Higher Secondary',
+    svg: Svg.PrePrimary,
+    label: 'Higher Secondary',
+    MediumId: 2,
+
+    selected: false
+  }
+];
+
 const Boards = ({ handleNextStep, handlePrevStep }) => {
-  const [selectedOrganization, setSelectedOrganization] = useState(null);
-  const [organizations, setOrganizations] = useState(initialOrganizations);
-  const [boardList, setBoardList] = useState(initialBoardList);
+  const [selectedBoard, setSelectedBoard] = useState(null);
+  const [Boards, setBoards] = useState(initialBoards);
+  const [selectedMedium, setSelectedMedium] = useState(null);
+  const [Mediums, setMediums] = useState(initialMediumList);
+  const [classList, setClassList] = useState(initialClassList);
 
   useEffect(() => {
-    // Update organization selection based on board selection
-    const updatedOrganizations = organizations.map(org => {
-      const hasSelectedBoards = boardList.some(board => board.organizationId === org.id && board.selected);
-      return { ...org, selected: hasSelectedBoards };
-    });
-    setOrganizations(updatedOrganizations);
-  }, [boardList]);
-
-  const handleCheckboxChangeBoard = (boardId) => {
-    let orgId = null;
-    const updatedBoardList = boardList.map(board => {
-      if (board.id === boardId) {
-        // setCurrentOrganisation(board.organizationId)
-        orgId = board.organizationId;
-        return { ...board, selected: !board.selected }
-      }
-      return board;
-    }
-    );
-    if (orgId) {
-      const updatedOrganizations = organizations.map((org) => {
-        if (orgId === org.id) {
-          return { ...org, selected: !org.selected };
-        }
-        return org;
+    // Update Board selection based on board selection
+    const updatedBoards = Boards.map(Bo => {
+      const hasSelectedMediums = classList.some(c =>{
+        const m= Mediums.find(m=> m.id === c.MediumId)
+        return m && m.BoardId === Bo.id && c.selected
       });
-      setOrganizations(updatedOrganizations);
+      return { ...Bo, selected: hasSelectedMediums };
+    });
+
+    setBoards(updatedBoards);
+  }, [classList]);
+
+  const handleCheckboxChangeMedium = (MediumId) => {
+  //   const updatedMediums = Mediums.map(Medium => {
+  //     debugger
+  //     if (Medium.id === MediumId) {
+  //       Medium = Medium.Medium;
+  //       return { ...Medium, selected: !Medium.selected }
+  //     }
+  //     return Medium;
+  //   }
+  // );
+  const updatedClass = classList.map(c => {
+    if (c.id === MediumId) {
+      return { ...c, selected: !Medium.selected }
     }
-    setBoardList(updatedBoardList);
+    return c;
+  }
+);
+    setClassList(updatedClass);
   };
 
-  const handleCheckboxChangeOrg = (id) => {
-    const updatedOrganizations = organizations.map((org) => {
-      if (id === org.id) {
-        setSelectedOrganization(org.id);
-        // return { ...org, selected: !org.selected };
+  const handleCheckboxChangeBo = (id) => {
+    const updatedBoards = Boards.map((Bo) => {
+      if (id === Bo.id) {
+        setSelectedBoard(Bo.id);
+        // return { ...Bo, selected: !Bo.selected };
       }
-      return org;
+      return Bo;
     });
-    setOrganizations(updatedOrganizations);
+    setBoards(updatedBoards);
   };
+
 
   const renderRightBoxContent = () => {
-    if (selectedOrganization) {
-      const filteredBoardList = boardList.filter(board => board.organizationId === selectedOrganization);
-      return <Medium schoolBoardList={filteredBoardList} handleCheckboxChangeBoard={handleCheckboxChangeBoard} />;
+    if (selectedBoard) {
+      const filteredMediums = Mediums.filter(Medium => Medium.BoardId === selectedBoard);
+      return <Medium classList={classList} schoolMediums={filteredMediums} handleCheckboxChangeMedium={handleCheckboxChangeMedium} selectedMedium={selectedMedium} />;
     }
     return <DefaultOrganization />;
   };
@@ -163,19 +196,19 @@ const Boards = ({ handleNextStep, handlePrevStep }) => {
 
       <div className={mainStyle.mainBox}>
         <div className={mainStyle.leftBox}>
-          {organizations.map((organization, index) => (
+          {Boards.map((Board, index) => (
             <InputCheckbox
               key={index}
-              checked={organization.selected}
-              onChange={() => handleCheckboxChangeOrg(organization.id)}
-              svg={<img src={organization.svg} alt={organization.title} />}
-              titalText={organization.title}
-              peraText={organization.peraText}
-              label={organization.label}
+              checked={Board.selected}
+              onChange={() => handleCheckboxChangeBo(Board.id)}
+              svg={<img src={Board.svg} alt={Board.title} />}
+              titalText={Board.title}
+              peraText={Board.peraText}
+              label={Board.label}
               borderLeft="ml-4"
               lineClamp="line-clamp-1"
               checkboxContainer="checkboxContainer2"
-              isActive={selectedOrganization === organization.id}
+              isActive={selectedBoard === Board.id}
             />
           ))}
         </div>
