@@ -1,18 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-// import styles from './styles/InputCheckbox.module.css'; // Import the CSS file for styling
 
-const InputCheckbox = ({ checked, onChange, label, svg, borderLeft, checkboxContainer, titalText, peraText,isActive, lineClamp }) => {
-  
+const InputCheckbox = ({ checked, onChange, label, svg, borderLeft, checkboxContainer, titalText, peraText, isActive, lineClamp }) => {
+
 
     return (
-        <div className={`flex gap-2 items-center pb-1 ${checkboxContainer} ${(isActive?"active":"")} `} onClick={onChange}>
+        <div className={`flex gap-2 items-center pb-1 ${checkboxContainer} ${(isActive ? "active" : "")} `} onClick={onChange}>
 
             <input
                 type="checkbox"
                 className={`roundedCheckbox ${borderLeft}`}
                 checked={checked}
-            // onChange={onChange}
+                readOnly
             />
             {svg && (
                 <div className="svg">{svg}</div>

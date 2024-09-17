@@ -10,7 +10,7 @@ import styles from './style/Information.module.css';
 
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-const Information = ({ handleNextStep }) => {
+const Information = ({ handleStep }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -100,7 +100,7 @@ const Information = ({ handleNextStep }) => {
             <p className="text-gray-600">Join us and unlock a world of possibilities!</p>
           </div>
           <div className="justify-end hidden xl:flex">
-            <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
+            <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={()=>handleStep(1)} alt="Next" />
           </div>
         </div>
 
@@ -246,7 +246,7 @@ const Information = ({ handleNextStep }) => {
         </div>
 
         <div className="flex justify-end mt-6 xl:hidden">
-          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
+          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={()=>handleStep(1)} alt="Next" />
         </div>
       </form>
     </div>

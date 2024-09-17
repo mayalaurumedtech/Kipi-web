@@ -10,9 +10,9 @@ import { ImageUrls } from '../../utils/constant/Images';
 const initialOrganizations = [
   {
     id: 1,
-    type: 'prePrimary',
+    type: 'PlayGroup',
     svg: Svg.PrePrimary,
-    label: 'Pre Primary',
+    label: 'Play Group',
     selected: false
   },
   {
@@ -96,7 +96,7 @@ const initialBoardList = [
  
 ];
 
-const Organization = ({ handleNextStep, handlePrevStep }) => {
+const Organization = ({ handleStep }) => {
   const [selectedOrganization, setSelectedOrganization] = useState(null);
   const [organizations, setOrganizations] = useState(initialOrganizations);
   const [boardList, setBoardList] = useState(initialBoardList);
@@ -160,8 +160,8 @@ const Organization = ({ handleNextStep, handlePrevStep }) => {
           <p className="paragraph">Select your organization types with boards.</p>
         </div>
         <div className="hidden xl:flex gap-6">
-          <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={handlePrevStep} alt="Previous" />
-          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
+          <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={()=>handleStep(-1)} alt="Previous" />
+          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={()=>handleStep(1)} alt="Next" />
         </div>
       </div>
 
@@ -186,8 +186,8 @@ const Organization = ({ handleNextStep, handlePrevStep }) => {
       </div>
 
       <div className="flex justify-between mt-6 xl:hidden">
-        <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={handlePrevStep} alt="Previous" />
-        <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
+        <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={()=>handleStep(-1)} alt="Previous" />
+        <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={()=>handleStep(1)} alt="Next" />
       </div>
     </>
   );

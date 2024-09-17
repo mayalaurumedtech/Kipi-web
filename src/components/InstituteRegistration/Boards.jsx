@@ -7,6 +7,7 @@ import DefaultOrganization from './DefaultOrganization';
 import { ImageUrls } from '../../utils/constant/Images';
 import Medium from './Medium';
 
+// Initial data for boards, mediums, and Schools
 const initialBoards = [
   {
     id: 1,
@@ -35,148 +36,102 @@ const initialBoards = [
 ];
 
 const initialMediumList = [
-  {
-    id: 1,
-    Medium: 'cbseBoards',
-    title: 'Gujarati Medium',
-    BoardId: 2, 
-    selected: false,
-    content: <p>This is the content for section 1.</p>,
-  },
-  {
-    id: 2,
-    Medium: 'cbseBoards',
-    title: 'Hindi Medium',
-    content: <p>This is the content for section 1.</p>,
-    BoardId: 2, 
-    selected: false
-  },
-  {
-    id: 3,
-    Medium: 'icseBoards',
-    title: 'English Medium',
-    content: <p>This is the content for section 1.</p>,
-    BoardId: 2, 
-    selected: false
-  },
-  {
-    id: 4,
-    Medium: 'gtuUniverse',
-    title: 'G.T.U',
-    BoardId: 3, 
-    selected: false
-  },
-  {
-    id: 5,
-    Medium: 'guUniverse',
-    title: 'G.U',
-    BoardId: 3, 
-    selected: false
-  },
-  {
-    id: 6,
-    Medium: 'ldcUniverse',
-    title: 'L.D. College ',
-    BoardId: 3, 
-    selected: false
-  },
-
+  { id: 1, BoardId: 1, title: 'Gujarati Medium', selected: false },
+  { id: 2, BoardId: 1, title: 'Hindi Medium', selected: false },
+  { id: 3, BoardId: 1, title: 'English Medium', selected: false },
+  { id: 4, BoardId: 2, title: 'English Medium', selected: false },
+  { id: 5, BoardId: 2, title: 'Hindi Medium', selected: false },
+  { id: 6, BoardId: 3, title: 'Gujarati Medium', selected: false },
+  { id: 7, BoardId: 3, title: 'Hindi Medium', selected: false },
+  { id: 8, BoardId: 3, title: 'English Medium', selected: false },
 ];
 
-const initialClassList = [
-  {
-    id: 1,
-    type: 'prePrimary',
-    svg: Svg.PrePrimary,
-    label: 'Pre Primary',
-    MediumId: 2,
-    selected: false
-  },
-  {
-    id: 2,
-    type: 'Primary',
-    svg: Svg.PrePrimary,
-    label: 'Primary',
-    selected: false,
-    MediumId: 2,
-
-  },
-  {
-    id: 3,
-    type: 'Secondary',
-    svg: Svg.PrePrimary,
-    label: 'Secondary',
-    MediumId: 2,
-
-    selected: false
-  },
-  {
-    id: 4,
-    type: 'Higher Secondary',
-    svg: Svg.PrePrimary,
-    label: 'Higher Secondary',
-    MediumId: 2,
-
-    selected: false
-  }
+const initialSchoolList = [
+  // G.S.E.B Gujarati Medium
+  { id: 1, MediumId: 1, svg: Svg.PrePrimary, label: 'Pre Primary', selected: false },
+  { id: 2, MediumId: 1, svg: Svg.PrePrimary, label: 'Primary', selected: false },
+  { id: 3, MediumId: 1, svg: Svg.PrePrimary, label: 'Secondary', selected: false },
+  { id: 4, MediumId: 1, svg: Svg.PrePrimary, label: 'Higher Secondary', selected: false },
+  // G.S.E.B Hindi Medium
+  { id: 5, MediumId: 2, svg: Svg.PrePrimary, label: 'Pre Primary', selected: false },
+  { id: 6, MediumId: 2, svg: Svg.PrePrimary, label: 'Primary', selected: false },
+  { id: 7, MediumId: 2, svg: Svg.PrePrimary, label: 'Secondary', selected: false },
+  { id: 8, MediumId: 2, svg: Svg.PrePrimary, label: 'Higher Secondary', selected: false },
+  // G.S.E.B English Medium
+  { id: 9, MediumId: 3, svg: Svg.PrePrimary, label: 'Pre Primary', selected: false },
+  { id: 10, MediumId: 3, svg: Svg.PrePrimary, label: 'Primary', selected: false },
+  { id: 11, MediumId: 3, svg: Svg.PrePrimary, label: 'Secondary', selected: false },
+  { id: 12, MediumId: 3, svg: Svg.PrePrimary, label: 'Higher Secondary', selected: false },
+  // C.B.S.E Hindi Medium
+  { id: 13, MediumId: 4, svg: Svg.PrePrimary, label: 'Pre Primary', selected: false },
+  { id: 14, MediumId: 4, svg: Svg.PrePrimary, label: 'Primary', selected: false },
+  { id: 15, MediumId: 4, svg: Svg.PrePrimary, label: 'Secondary', selected: false },
+  { id: 16, MediumId: 4, svg: Svg.PrePrimary, label: 'Higher Secondary', selected: false },
+  // C.B.S.E English Medium
+  { id: 17, MediumId: 5, svg: Svg.PrePrimary, label: 'Pre Primary', selected: false },
+  { id: 18, MediumId: 5, svg: Svg.PrePrimary, label: 'Primary', selected: false },
+  { id: 19, MediumId: 5, svg: Svg.PrePrimary, label: 'Secondary', selected: false },
+  { id: 20, MediumId: 5, svg: Svg.PrePrimary, label: 'Higher Secondary', selected: false },
+  // ICSE/ISC Gujarati Medium
+  { id: 21, MediumId: 6, svg: Svg.PrePrimary, label: 'Bachelor Of Engineering', selected: false },
+  { id: 22, MediumId: 6, svg: Svg.PrePrimary, label: 'Bachelor Of Business Administration', selected: false },
+  { id: 23, MediumId: 6, svg: Svg.PrePrimary, label: 'Master Of Business Administration', selected: false },
+  // ICSE/ISC Hindi Medium
+  { id: 24, MediumId: 7, svg: Svg.PrePrimary, label: 'Bachelor Of Engineering', selected: false },
+  { id: 25, MediumId: 7, svg: Svg.PrePrimary, label: 'Bachelor Of Business Administration', selected: false },
+  { id: 26, MediumId: 7, svg: Svg.PrePrimary, label: 'Master Of Business Administration', selected: false },
+  // ICSE/ISC English Medium
+  { id: 27, MediumId: 8, svg: Svg.PrePrimary, label: 'Bachelor Of Engineering', selected: false },
+  { id: 28, MediumId: 8, svg: Svg.PrePrimary, label: 'Bachelor Of Business Administration', selected: false },
+  { id: 29, MediumId: 8, svg: Svg.PrePrimary, label: 'Master Of Business Administration', selected: false },
 ];
 
-const Boards = ({ handleNextStep, handlePrevStep }) => {
+const Boards = ({ handleStep }) => {
   const [selectedBoard, setSelectedBoard] = useState(null);
   const [Boards, setBoards] = useState(initialBoards);
-  const [selectedMedium, setSelectedMedium] = useState(null);
   const [Mediums, setMediums] = useState(initialMediumList);
-  const [classList, setClassList] = useState(initialClassList);
+  const [schoolList, setSchoolList] = useState(initialSchoolList);
 
+  // Update Boards' selected state based on selected Schools and mediums
   useEffect(() => {
-    // Update Board selection based on board selection
-    const updatedBoards = Boards.map(Bo => {
-      const hasSelectedMediums = classList.some(c =>{
-        const m= Mediums.find(m=> m.id === c.MediumId)
-        return m && m.BoardId === Bo.id && c.selected
+    const updatedBoards = Boards.map(board => {
+      // Check if any School related to this board's mediums is selected
+      const hasSelectedMediums = schoolList.some(schoolItem => {
+        const medium = Mediums.find(m => m.id === schoolItem.MediumId);
+        return medium && medium.BoardId === board.id && schoolItem.selected;
       });
-      return { ...Bo, selected: hasSelectedMediums };
+      return { ...board, selected: hasSelectedMediums };
     });
-
     setBoards(updatedBoards);
-  }, [classList]);
+  }, [schoolList, Mediums]);
 
-  const handleCheckboxChangeMedium = (MediumId) => {
-  //   const updatedMediums = Mediums.map(Medium => {
-  //     debugger
-  //     if (Medium.id === MediumId) {
-  //       Medium = Medium.Medium;
-  //       return { ...Medium, selected: !Medium.selected }
-  //     }
-  //     return Medium;
-  //   }
-  // );
-  const updatedClass = classList.map(c => {
-    if (c.id === MediumId) {
-      return { ...c, selected: !Medium.selected }
-    }
-    return c;
-  }
-);
-    setClassList(updatedClass);
-  };
-
-  const handleCheckboxChangeBo = (id) => {
-    const updatedBoards = Boards.map((Bo) => {
-      if (id === Bo.id) {
-        setSelectedBoard(Bo.id);
-        // return { ...Bo, selected: !Bo.selected };
+  // Handle school selection toggle
+  const handleCheckboxChangeSchool = (SchoolId) => {
+    const updatedSchoolList = schoolList.map(School => {
+      if (School.id === SchoolId) {
+        return { ...School, selected: !School.selected };
       }
-      return Bo;
+      return School;
     });
-    setBoards(updatedBoards);
+    setSchoolList(updatedSchoolList);
   };
 
+  // Handle board selection and show related mediums and schools
+  const handleCheckboxChangeBoard = (id) => {
+    setSelectedBoard(id);
+  };
 
+  // Render mediums and associated Schools
   const renderRightBoxContent = () => {
     if (selectedBoard) {
-      const filteredMediums = Mediums.filter(Medium => Medium.BoardId === selectedBoard);
-      return <Medium classList={classList} schoolMediums={filteredMediums} handleCheckboxChangeMedium={handleCheckboxChangeMedium} selectedMedium={selectedMedium} />;
+      const filteredMediums = Mediums.filter(medium => medium.BoardId === selectedBoard);
+      return (
+        <Medium
+        schoolList={schoolList}
+          schoolMediums={filteredMediums}
+          handleCheckboxChangeSchool={handleCheckboxChangeSchool}
+        />
+      );
     }
     return <DefaultOrganization />;
   };
@@ -189,26 +144,26 @@ const Boards = ({ handleNextStep, handlePrevStep }) => {
           <p className="paragraph">Select your organization types with boards.</p>
         </div>
         <div className="hidden xl:flex gap-6">
-          <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={handlePrevStep} alt="Previous" />
-          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
+          <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={()=>handleStep(-1)} alt="Previous" />
+          <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={()=>handleStep(1)} alt="Next" />
         </div>
       </div>
 
       <div className={mainStyle.mainBox}>
         <div className={mainStyle.leftBox}>
-          {Boards.map((Board, index) => (
+          {Boards.map(board => (
             <InputCheckbox
-              key={index}
-              checked={Board.selected}
-              onChange={() => handleCheckboxChangeBo(Board.id)}
-              svg={<img src={Board.svg} alt={Board.title} />}
-              titalText={Board.title}
-              peraText={Board.peraText}
-              label={Board.label}
+              key={board.id}
+              checked={board.selected}
+              onChange={() => handleCheckboxChangeBoard(board.id)}
+              svg={<img src={board.svg} alt={board.title} />}
+              titalText={board.title}
+              peraText={board.peraText}
+              label={board.label}
               borderLeft="ml-4"
               lineClamp="line-clamp-1"
               checkboxContainer="checkboxContainer2"
-              isActive={selectedBoard === Board.id}
+              isActive={selectedBoard === board.id}
             />
           ))}
         </div>
@@ -218,11 +173,11 @@ const Boards = ({ handleNextStep, handlePrevStep }) => {
       </div>
 
       <div className="flex justify-between mt-6 xl:hidden">
-        <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={handlePrevStep} alt="Previous" />
-        <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={handleNextStep} alt="Next" />
+        <Buttons path="" text="Previous" buttonStyle="cusbuttons" onClick={()=>handleStep(-1)} alt="Previous" />
+        <Buttons path="" text="Next" buttonStyle="cus-blue-buttons" onClick={()=>handleStep(1)} alt="Next" />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Boards
+export default Boards;

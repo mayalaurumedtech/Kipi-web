@@ -4,9 +4,11 @@ import InstituteRegistrationHeader from "./InstituteRegistrationHeader"
 
 const InstituteRegistrationLayout = () => {
     return (
-        <main className="App">
-            <InstituteRegistrationHeader />
-            <Outlet />
+        <main className="app-container">
+            <div className="main-content">
+                <InstituteRegistrationHeader />
+                <Outlet />
+            </div>
             <Footer />
         </main>
     )

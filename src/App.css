@@ -4,6 +4,23 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.main-content {
+    flex: 1; 
+}
+
 .active {
     color: var(--primary-blue) !important;
 }
@@ -23,29 +40,31 @@
     margin: 0 auto;
 }
 
-.heading{
+.heading {
     font-size: 24px;
     font-weight: 600;
     line-height: 28.8px;
 }
 
-.title{
+.title {
     font-size: 18px;
     font-weight: 600;
     line-height: 21.6px;
 }
-.title span{
+
+.title span {
     font-weight: 300;
     line-height: 28px;
 }
 
 
-.paragraph{
+.paragraph {
     font-size: 16px;
     font-weight: 300;
     line-height: 24px;
 }
-.paragraph2{
+
+.paragraph2 {
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
@@ -79,7 +98,7 @@
 }
 
 /* Default checkbox style  ========= checkboxContainer   1 start  ============= */
- .roundedCheckbox {
+.roundedCheckbox {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -94,7 +113,7 @@
 }
 
 .roundedCheckbox:checked {
-    background-color: var(--primary-blue); 
+    background-color: var(--primary-blue);
     border-color: var(--primary-blue);
     position: relative;
 }
@@ -106,33 +125,33 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 12px;
-    color: var(--primary-white); 
+    color: var(--primary-white);
 }
 
-.checkboxContainer.active{
+.checkboxContainer.active {
     background-color: var(--primary-white);
     border-radius: 16px 0px 0px 16px;
     position: relative;
 }
 
-.checkboxContainer.active::after{
+.checkboxContainer.active::after {
     content: '';
     position: absolute;
     border-left: 2px solid var(--primary-blue);
     height: 40px;
 }
 
-.checkboxContainer .roundedCheckbox:checked + .svg{
+.checkboxContainer .roundedCheckbox:checked+.svg {
     background-color: var(--secondary-light-blue-02);
     border: none;
 }
 
-.checkboxContainer .roundedCheckbox:checked + .svg svg {
-    fill: var(--primary-blue) !important; 
+.checkboxContainer .roundedCheckbox:checked+.svg svg {
+    fill: var(--primary-blue) !important;
 }
 
 
-.checkboxContainer .svg{
+.checkboxContainer .svg {
     border: 1px solid var(--territory-grey-outline);
     width: 48px;
     height: 48px;
@@ -150,17 +169,17 @@
 
 /* Default checkbox style  ========= checkboxContainer   2 start  ============= */
 
-.checkboxContainer2 .input-title-box{
+.checkboxContainer2 .input-title-box {
     width: 250px;
 }
 
-.checkboxContainer2.active{
+.checkboxContainer2.active {
     background-color: var(--primary-white);
     border-radius: 16px 0px 0px 16px;
     position: relative;
 }
 
-.checkboxContainer2.active::after{
+.checkboxContainer2.active::after {
     content: '';
     position: absolute;
     border-left: 2px solid var(--primary-blue);
@@ -168,23 +187,23 @@
 }
 
 .checkboxContainer2 .title,
-.checkboxContainer2 .paragraph2{
+.checkboxContainer2 .paragraph2 {
     color: var(--primary-black) !important;
 }
 
-.checkboxContainer2 img{
+.checkboxContainer2 img {
     width: 48px;
     height: 48px;
     background-size: cover;
 }
 
 
-.mediumAccodiancheckbox{
+.mediumAccodiancheckbox {
     border-bottom: 1px solid var(--territory-grey-outline);
     padding: 16px !important;
 }
 
-.mediumAccodiancheckbox:last-child{
+.mediumAccodiancheckbox:last-child {
     border-bottom: none;
 }
 

@@ -1,0 +1,11 @@
+.AccordionModal{
+    width: 1008px;
+    padding: 0px 80px 40px;
+
+}
+
+.AccordionModal label{
+    font-size: 16px;
+    font-weight: 400;
+}
+

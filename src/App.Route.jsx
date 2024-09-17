@@ -9,6 +9,8 @@ import Layout from './components/shared/Layout';
 import Otp from './components/account/Otp';
 import InstituteRegistrationLayout from './components/shared/InstituteRegistrationLayout';
 import InstituteRegistration from './components/InstituteRegistration/InstituteRegistration.jsx';
+import InstituteDashboardLayout from './components/shared/InstituteDashboardLayout.jsx';
+import InstituteLandingDashboard from './components/InstituteRegistration/InstituteLandingDashboard.jsx';
 
 
 const AppRoute = () => {
@@ -26,6 +28,10 @@ const AppRoute = () => {
 
                     <Route  element={<InstituteRegistrationLayout />}> 
                         <Route exact path='/institute-registration' element={<InstituteRegistration />} />
+                    </Route>
+
+                    <Route  element={<InstituteDashboardLayout />}> 
+                        <Route exact path='/institute-landing-dashboard' element={<InstituteLandingDashboard />} />
                     </Route>
                 </Route>
             </Routes>

@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom"
 import Footer from "./Footer"
-import Navbar from "./Navbar"
+import InstituteDashboardHeader from "./InstituteDashboardHeader"
 
-const Layout = () => {
+const InstituteDashboardLayout = () => {
     return (
         <main className="app-container">
             <div className="main-content">
-                <Navbar />
+                <InstituteDashboardHeader />
+
                 <Outlet />
             </div>
             <Footer />
@@ -14,4 +15,4 @@ const Layout = () => {
     )
 }
 
-export default Layout
+export default InstituteDashboardLayout
