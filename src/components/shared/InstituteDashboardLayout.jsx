@@ -1,6 +1,5 @@
-import { Outlet } from "react-router-dom"
-import Footer from "./Footer"
-import InstituteDashboardHeader from "./InstituteDashboardHeader"
+import { Outlet } from "react-router-dom";
+import InstituteDashboardHeader from "./InstituteDashboardHeader";
 
 const InstituteDashboardLayout = () => {
     return (
@@ -10,7 +9,6 @@ const InstituteDashboardLayout = () => {
 
                 <Outlet />
             </div>
-            <Footer />
         </main>
     )
 }

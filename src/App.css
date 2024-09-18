@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     display: flex;
@@ -14,11 +15,11 @@ html, body {
 .app-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }
 
 .main-content {
-    flex: 1; 
+    flex: 1;
 }
 
 .active {
@@ -46,6 +47,12 @@ html, body {
     line-height: 28.8px;
 }
 
+.heading2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
 .title {
     font-size: 18px;
     font-weight: 600;
@@ -70,12 +77,30 @@ html, body {
     line-height: 24px;
 }
 
+.paragraph21 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.paragraph3 {
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px;
+}
+
 .index-bg-img {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 880px;
     width: 100%;
+}
+
+.AdminMenuStyle h3 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
 }
 
 .cusbuttons {
@@ -95,6 +120,11 @@ html, body {
     color: var(--primary-white);
     border: 1px solid var(--primary-dark-blue);
     box-shadow: var(--custom-shadow01) var(--primary-dark-blue);
+}
+
+.notification-shadow {
+    box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.1);
+
 }
 
 /* Default checkbox style  ========= checkboxContainer   1 start  ============= */

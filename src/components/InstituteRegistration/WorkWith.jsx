@@ -86,7 +86,7 @@ const WorkWith = ({ handleStep }) => {
                             <p>Institute has been Registered successfully!</p>
                         </div>
                         <div className="flex flex-col items-center sm:gap-6 gap-3 sm:pb-10 pb-5">
-                            <Buttons path="/Institute-registration" text="Let’s Get Started" buttonStyle="cus-blue-buttons" alt={"Let’s Get Started"} />
+                            <Buttons path="/institute-landing-dashboard" text="Let’s Get Started" buttonStyle="cus-blue-buttons" alt={"Let’s Get Started"} />
                             <Buttons onClick={()=>handleStep('new')} text="Register New Institute" buttonStyle="cusbuttons" alt={"Register New Institute"} />
                         </div>
                     </div>

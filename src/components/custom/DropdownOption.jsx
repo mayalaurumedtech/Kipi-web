@@ -1,40 +1,45 @@
 import React from 'react';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { Link } from 'react-router-dom';
+import { Svg } from '../../utils/constant/Svg';
+import { ImageUrls } from '../../utils/constant/Images';
 
-const DropdownOption = ({ buttonLabel, options, onOptionClick }) => {
+const DropdownOption = ({ buttonLabel, options, Arrow, AdminName, AdminType, svg, boxWidth="w-52", AdminMenuStyle, children }) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          {buttonLabel} 
-          <ChevronDownIcon aria-hidden="true" className="-mr-1 h-5 w-5 text-gray-400" />
-        </MenuButton>
-      </div>
-
-      <MenuItems
-        transition
-        className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-      >
-        <div className="py-1">
-          {options.map((option, index) => (
-            <MenuItem key={index}>
-              {({ active }) => (
-                <Link
-                  to={option.href || "#"}
-                  onClick={() => onOptionClick(option)}
-                  className={`block px-4 py-2 text-sm text-gray-700 ${
-                    active ? 'bg-gray-100 text-gray-900' : ''
-                  }`}
-                >
-                  {option.label}
-                </Link>
+      {({ open }) => (
+        <>
+          <div>
+            <MenuButton className="inline-flex gap-2 w-full items-center text-secondaryGrey01">
+              {buttonLabel}
+              {svg && (
+                <div className="bg-secondaryLightBlue02 w-12 h-12 rounded-full flex justify-center items-center">{svg}</div>
+            )}
+              {AdminName && (
+                <div className="flex gap-2 text-right">
+                  <div>
+                    <h3 className="paragraph font-semibold">{AdminName}</h3>
+                    <p className="paragraph2">{AdminType}</p>
+                  </div>
+                  <div className="w-10">
+                    <img src={ImageUrls.User2} alt="" className="w-full" />
+                  </div>
+                </div>
               )}
-            </MenuItem>
-          ))}
-        </div>
-      </MenuItems>
+              {Arrow && (
+                <div className="p-1">
+                  {open ? Svg.ArrowUp : Svg.ArrowDown}
+                </div>
+              )}
+            </MenuButton>
+          </div>
+
+          <MenuItems className={`absolute right-0 z-10 mt-4 py-3 ${boxWidth} origin-top-right rounded-2xl bg-primaryWhite notification-shadow transition`}>
+
+            {children}
+          </MenuItems>
+        </>
+      )}
     </Menu>
   );
 };
