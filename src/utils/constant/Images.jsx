@@ -29,6 +29,12 @@ import gtuUniverse from '../../assets/images/university/board_gtu.png';
 import guUniverse from '../../assets/images/university/board_gu.png';
 import ldcUniverse from '../../assets/images/university/board_gls.png';
 
+// institute Logo 
+import EliteAcademyLogo from '../../assets/images/institute-logo/eliteacademylogo.png';
+import SmartMindLogo from '../../assets/images/institute-logo/smartmindlogo.png';
+import NeuromindLogo from '../../assets/images/institute-logo/neuromindlogo.png';
+import BrightFutureLogo from '../../assets/images/institute-logo/brightfuturelogo.png';
+
 
 export const ImageUrls = {
 
@@ -62,6 +68,12 @@ export const ImageUrls = {
   gtuUniverse,
   guUniverse,
   ldcUniverse,
+
+  // institute Logo 
+  EliteAcademyLogo,
+  SmartMindLogo,
+  NeuromindLogo,
+  BrightFutureLogo,
  
 
 

@@ -10,7 +10,9 @@ import Otp from './components/account/Otp';
 import InstituteRegistrationLayout from './components/shared/InstituteRegistrationLayout';
 import InstituteRegistration from './components/InstituteRegistration/InstituteRegistration.jsx';
 import InstituteDashboardLayout from './components/shared/InstituteDashboardLayout.jsx';
-import InstituteLandingDashboard from './components/InstituteRegistration/InstituteLandingDashboard.jsx';
+import InstituteLayout from './components/shared/InstituteLayout.jsx';
+import InstituteLandingDashboard from './components/InstituteDashboard/InstituteLandingDashboard.jsx';
+import InstituteDashboard from './components/InstituteDashboard/dashBoard/InstituteDashboard.jsx';
 
 
 const AppRoute = () => {
@@ -32,6 +34,10 @@ const AppRoute = () => {
 
                     <Route  element={<InstituteDashboardLayout />}> 
                         <Route exact path='/institute-landing-dashboard' element={<InstituteLandingDashboard />} />
+                    </Route>
+
+                    <Route  element={<InstituteLayout />}> 
+                        <Route exact path='/institute-dashboard' element={<InstituteDashboard />} />
                     </Route>
                 </Route>
             </Routes>

@@ -67,6 +67,7 @@ import CollegeGraySvg from '../../assets/icons/college-gray.svg';
 import ExamFile from '../../assets/icons/exam-file.svg';
 import CollageStudent from '../../assets/icons/collage-student.svg';
 import Dollar from '../../assets/icons/dollar.svg';
+import TeacherSvg from '../../assets/icons/teacher-svg.svg';
 
 
 
@@ -139,5 +140,6 @@ export const IconsUrls = {
     ExamFile,
     CollageStudent,
     Dollar,
+    TeacherSvg,
  
 };
