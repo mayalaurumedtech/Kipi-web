@@ -1,0 +1,94 @@
+.attendance {
+    background-color: #EBF8F1;
+}
+
+.attendance:hover{
+    border: 1px solid #439368;
+    box-shadow: var(--hover-shadow01) #439368;
+}
+
+.attendance svg{
+    fill: #439368;
+}
+
+.replaceTeacher {
+    background-color: #FBF7F3;
+}
+
+.replaceTeacher:hover{
+    border: 1px solid #DA8D19;
+    box-shadow: var(--hover-shadow01) #DA8D19;
+}
+
+.replaceTeacher svg{
+    fill: #DA8D19;
+}
+
+.reports {
+    background-color: #FBF3F3;
+}
+
+.reports:hover{
+    border: 1px solid #FB4646;
+    box-shadow: var(--hover-shadow01) #FB4646;
+}
+
+.reports svg{
+    fill: #FB4646;
+}
+
+.examsResults {
+    background-color: #EBF8F8;
+}
+
+.examsResults:hover{
+    border: 1px solid #29B0B9;
+    box-shadow: var(--hover-shadow01) #29B0B9;
+}
+
+.examsResults svg{
+    fill: #29B0B9;
+}
+
+.feesCollection {
+    background-color: #EBF2F8;
+}
+
+.feesCollection:hover{
+    border: 1px solid #3E61BC;
+    box-shadow: var(--hover-shadow01) #3E61BC;
+}
+
+.feesCollection svg{
+    fill: #3E61BC;
+}
+
+.generalTimeTable {
+    background-color: #F0EBF8;
+}
+
+.generalTimeTable:hover{
+    border: 1px solid #704393;
+    box-shadow: var(--hover-shadow01) #704393;
+}
+
+.generalTimeTable svg{
+    fill: #704393;
+}
+
+
+.calendarComponent {
+    width: 424px;
+    border: 1px solid var(--territory-grey-outline);
+    border-radius: 16px;
+    margin-top: 32px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.react-calendar{
+    border: none !important;
+}

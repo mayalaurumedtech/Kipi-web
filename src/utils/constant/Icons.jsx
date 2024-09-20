@@ -69,6 +69,14 @@ import CollageStudent from '../../assets/icons/collage-student.svg';
 import Dollar from '../../assets/icons/dollar.svg';
 import TeacherSvg from '../../assets/icons/teacher-svg.svg';
 
+// institute DashBoard - Quick Actions
+import Attendance from '../../assets/icons/quick-actions/attendance.svg';
+import ReplaceTeacher from '../../assets/icons/quick-actions/Isolation_Mode.svg';
+import Reports from '../../assets/icons/quick-actions/reports.svg';
+import ExamsResults from '../../assets/icons/quick-actions/exams_results.svg';
+import FeesCollection from '../../assets/icons/quick-actions/fees_collection.svg';
+import GeneralTimeTable from '../../assets/icons/quick-actions/general_time_table.svg';
+
 
 
 export const IconsUrls = {
@@ -141,5 +149,14 @@ export const IconsUrls = {
     CollageStudent,
     Dollar,
     TeacherSvg,
+
+    // institute DashBoard - Quick Actions
+    Attendance,
+    ReplaceTeacher,
+    Reports,
+    ExamsResults,
+    FeesCollection,
+    GeneralTimeTable,
+    
  
 };

@@ -82,56 +82,59 @@ const InstitutedHeader = () => {
 
   return (
     <div className="bg-primaryWhite shadow fixed top-0 w-full z-50">
-      <div className="max-w-[1920px] mx-auto px-5 py-4">
+      <div className="px-5">
         <header className="flex justify-between items-center">
-          <div className="flex justify-between w-[300px] items-center">
+          <div className="flex justify-between w-[16.3%] items-center py-6 border-r pr-5">
             <h1 className="text-3xl font-bold flex gap-2 items-center">
               <img src={IconsUrls.LogoSvg} alt="KIPI logo" className="h-8 w-auto" />
               KIPI
             </h1>
-            <div onClick={() => context.setIsToggleSidebar(!context.isToggleSidebar)}>
-              {Svg.Setting}
+            <div className="cursor-pointer" onClick={() => context.setIsToggleSidebar(!context.isToggleSidebar)}>
+              {Svg.SidebarToggle}
             </div>
           </div>
 
-          <div className="flex gap-12">
-            {/* Notification Dropdown */}
-            <DropdownOption
-              svg={Svg.Bell}
-              boxWidth="w-80"
-            >
-              <div className="max-h-[25rem] overflow-y-auto">
-                {displayedNotifications.map((option, index) => (
-                  <MenuItem key={index}>
-                    {({ active }) => (
-                      <div
-                        onClick={() => handleOptionClick(option)}
-                        className={`flex gap-2 px-4 py-2 text-lg ${active ? 'bg-secondaryGrey03' : ''}`}
-                      >
-                        <div>{option.svg}</div>
-                        <div className="AdminMenuStyle">
-                          <h3 className="paragraph21 line-clamp-1">{option.name}</h3>
-                          <h3 className="paragraph21 line-clamp-1">{option.title}</h3>
-                          <h4 className="paragraph2 line-clamp-2">{option.description}</h4>
-                          <p className="paragraph3 line-clamp-1">{formatNotificationTime(option.time)}</p>
+          <div className="flex gap-12  py-4">
+            <div className="flex gap-6">
+              
+              {/* Notification Dropdown */}
+              <DropdownOption
+                svg={Svg.Bell}
+                boxWidth="w-80"
+              >
+                <div className="max-h-[25rem] overflow-y-auto">
+                  {displayedNotifications.map((option, index) => (
+                    <MenuItem key={index}>
+                      {({ active }) => (
+                        <div
+                          onClick={() => handleOptionClick(option)}
+                          className={`flex gap-2 px-4 py-2 text-lg ${active ? 'bg-secondaryGrey03' : ''}`}
+                        >
+                          <div>{option.svg}</div>
+                          <div className="AdminMenuStyle">
+                            <h3 className="paragraph21 line-clamp-1">{option.name}</h3>
+                            <h3 className="paragraph21 line-clamp-1">{option.title}</h3>
+                            <h4 className="paragraph2 line-clamp-2">{option.description}</h4>
+                            <p className="paragraph3 line-clamp-1">{formatNotificationTime(option.time)}</p>
+                          </div>
                         </div>
-                      </div>
-                    )}
-                  </MenuItem>
-                ))}
-              </div>
-              {/* View More Button */}
-              {NotificationList.length > 3 && (
-                <div className="text-center p-2">
-                  <button
-                    onClick={() => setShowAll(!showAll)}
-                    className="text-blue-500 underline"
-                  >
-                    {showAll ? "Show Less" : "View More"}
-                  </button>
+                      )}
+                    </MenuItem>
+                  ))}
                 </div>
-              )}
-            </DropdownOption>
+                {/* View More Button */}
+                {NotificationList.length > 3 && (
+                  <div className="text-center p-2">
+                    <button
+                      onClick={() => setShowAll(!showAll)}
+                      className="text-blue-500 underline"
+                    >
+                      {showAll ? "Show Less" : "View More"}
+                    </button>
+                  </div>
+                )}
+              </DropdownOption>
+            </div>
 
             {/* Admin Menu Dropdown */}
             <DropdownOption

@@ -26,7 +26,7 @@ const InstituteLayout = () => {
                             <InstitutedHeader />
                         </div>
                     }
-                    <div className="main flex gap-3 max-w-[1920px] mx-auto pt-20 px-7">
+                    <div className="main flex gap-3 pt-20 px-7">
                         {
                             !isHideSidebarAndHeader &&
                             <div className={`sideBarWrapper ${isToggleSidebar ? 'toggle' : ''}`}>

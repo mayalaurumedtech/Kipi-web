@@ -127,8 +127,11 @@ body {
 
 }
 
+.react-calendar{
+    border: none !important;
+}
 
-/* ========================= Sidebar Start ========================= */
+/* ========================= Institute Layout and Sidebar Start ========================= */
 
 .main .sideBarWrapper {
     width: 17%;
@@ -146,35 +149,41 @@ body {
 }
 
 .main .sideBarWrapper .sidebar {
-    width: 100%;
+    width: 17%;
     height: 100vh;
     max-height: calc(100% - 70px);
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 70px;
     left: 0;
     background-color: var(--primary-white);
-    /* overflow-y: scroll; */
-    /* overflow-x: hidden; */
+    overflow-y: scroll;
+    overflow-x: hidden;
     overflow: auto;
     scrollbar-width: none;
     transition: all 0.5s ease;
     text-wrap: nowrap;
+    border-right: 1px solid var(--territory-grey-outline);
 }
 
 .sidebar-menu{
-    display: flex;
-    gap: 8px;
     padding: 16px;
     border: 1px solid transparent;
     transition: all .3s ease;
 }
 
-.sidebar-menu:hover{
+.sidebar-menu-active{
     border: 1px solid var(--primary-blue);
+    border-radius: 16px;
+    font-weight: 500;
+    background-color: var(--secondary-light-blue-02);
+}
+
+.sidebar-menu:hover{
     border-radius: 16px;
     background-color: var(--secondary-light-blue-02);
 }
 
+.sidebar-menu-active svg,
 .sidebar-menu:hover svg{
     fill: var(--primary-blue);
 }
@@ -196,7 +205,7 @@ body {
     flex: 0 0 100% !important;
 }
 
-/* ========================= Sidebar End ========================= */
+/* ========================= Institute Layout and Sidebar End ========================= */
 
 
 /* Default checkbox style  ========= checkboxContainer   1 start  ============= */
