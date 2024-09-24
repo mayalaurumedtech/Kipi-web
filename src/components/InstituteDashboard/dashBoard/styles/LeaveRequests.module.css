@@ -1,0 +1,55 @@
+.cardList {
+    padding: 16px 16px 0px 16px;
+    background-color: var(--secondary-grey-03);
+    border-radius: 16px;
+}
+
+.innerCard{
+    max-height: 392px;
+    overflow-y: scroll;
+    scrollbar-width:none;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cardItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+}
+
+.cardContent {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--territory-grey-outline);
+    padding-bottom: 8px;
+}
+
+.cardActions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+}
+
+.Alertbutton{
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    gap: 8px;
+    display: flex;
+}

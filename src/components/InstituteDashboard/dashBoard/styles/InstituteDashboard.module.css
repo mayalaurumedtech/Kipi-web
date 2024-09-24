@@ -77,16 +77,12 @@
 }
 
 
-.calendarComponent {
-    width: 424px;
+.roundedBorder {
     border: 1px solid var(--territory-grey-outline);
     border-radius: 16px;
-    margin-top: 32px;
     padding: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .react-calendar{

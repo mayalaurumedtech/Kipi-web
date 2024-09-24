@@ -5,6 +5,9 @@ import { Svg } from '../../utils/constant/Svg';
 import { formatDistanceToNow, differenceInSeconds } from 'date-fns';
 import { MenuItem } from '@headlessui/react';
 import { MyContext } from './InstituteLayout.jsx';
+import Select from '../custom/Select.jsx';
+import OptionSwitchButton from '../custom/OptionSwitchButton.jsx';
+import { ImageUrls } from '../../utils/constant/Images.jsx';
 
 const AdminMenu = [
   { id: 1, title: 'Profile', path: '', svg: Svg.User },
@@ -55,6 +58,12 @@ const NotificationList = [
   },
 ];
 
+const YearOptions = [
+  { value: 'Academic Year : 2024-25', label: 'Academic Year : 2024-25' },
+  { value: 'Academic Year : 2023-24', label: 'Academic Year : 2023-24' },
+  { value: 'Academic Year : 2022-23', label: 'Academic Year : 2022-23' },
+];
+
 const formatNotificationTime = (date) => {
   const secondsDifference = differenceInSeconds(new Date(), date);
 
@@ -67,6 +76,16 @@ const formatNotificationTime = (date) => {
 
 const InstitutedHeader = () => {
   const [showAll, setShowAll] = useState(false);
+  const [filter, setFilter] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const options = [
+    { value: 'Elite Future Academy', label: 'Elite Future Academy', img: ImageUrls.EliteAcademyLogo, email: 'elitefutureacademy@gmail.com',},
+    { value: 'Smart Mind Institute', label: 'Smart Mind Institute', img: ImageUrls.SmartMindLogo, email: 'smartmind@smartmind.com',},
+    { value: 'Elite Future Academy', label: 'Elite Future Academy', img: ImageUrls.NeuromindLogo, email: 'neuromindacademy@gmail.com',},
+    { value: 'Bright Future Institute', label: 'Bright Future Institute', img: ImageUrls.BrightFutureLogo, email: 'brightfutureintitute@gmail.com', },
+  ];
+
 
   const context = useContext(MyContext);
 
@@ -83,7 +102,7 @@ const InstitutedHeader = () => {
   return (
     <div className="bg-primaryWhite shadow fixed top-0 w-full z-50">
       <div className="px-5">
-        <header className="flex justify-between items-center">
+        <header className="flex items-center">
           <div className="flex justify-between w-[16.3%] items-center py-6 border-r pr-5">
             <h1 className="text-3xl font-bold flex gap-2 items-center">
               <img src={IconsUrls.LogoSvg} alt="KIPI logo" className="h-8 w-auto" />
@@ -94,70 +113,91 @@ const InstitutedHeader = () => {
             </div>
           </div>
 
-          <div className="flex gap-12  py-4">
-            <div className="flex gap-6">
-              
-              {/* Notification Dropdown */}
-              <DropdownOption
-                svg={Svg.Bell}
-                boxWidth="w-80"
-              >
-                <div className="max-h-[25rem] overflow-y-auto">
-                  {displayedNotifications.map((option, index) => (
-                    <MenuItem key={index}>
-                      {({ active }) => (
-                        <div
-                          onClick={() => handleOptionClick(option)}
-                          className={`flex gap-2 px-4 py-2 text-lg ${active ? 'bg-secondaryGrey03' : ''}`}
-                        >
-                          <div>{option.svg}</div>
-                          <div className="AdminMenuStyle">
-                            <h3 className="paragraph21 line-clamp-1">{option.name}</h3>
-                            <h3 className="paragraph21 line-clamp-1">{option.title}</h3>
-                            <h4 className="paragraph2 line-clamp-2">{option.description}</h4>
-                            <p className="paragraph3 line-clamp-1">{formatNotificationTime(option.time)}</p>
-                          </div>
-                        </div>
-                      )}
-                    </MenuItem>
-                  ))}
-                </div>
-                {/* View More Button */}
-                {NotificationList.length > 3 && (
-                  <div className="text-center p-2">
-                    <button
-                      onClick={() => setShowAll(!showAll)}
-                      className="text-blue-500 underline"
-                    >
-                      {showAll ? "Show Less" : "View More"}
-                    </button>
-                  </div>
-                )}
-              </DropdownOption>
-            </div>
+          <div className="flex justify-between w-[82.7%] items-center">
 
-            {/* Admin Menu Dropdown */}
-            <DropdownOption
-              AdminName="Vivek Grover"
-              AdminType="Admin"
-              Arrow="Arrow"
-            >
-              {AdminMenu.map((Admin, index) => (
-                <MenuItem key={index}>
-                  {({ active }) => (
-                    <div
-                      onClick={() => handleOptionClick(Admin)}
-                      className={`flex gap-2 px-4 py-2 text-lg ${active ? 'bg-secondaryGrey03' : ''}`}
-                    >
-                      <div>{Admin.svg}</div>
-                      <div className="AdminMenuStyle">
-                        <h3>{Admin.title}</h3>
-                      </div>
+              <OptionSwitchButton
+                value={selectedOption}
+                onChange={setSelectedOption}
+                options={options}
+              />
+
+            <div className="flex gap-12 pt-4">
+
+              <div className="flex gap-6">
+                <Select
+                  value={filter}
+                  onChange={(e) => setFilter(e.target.value)}
+                  className="mb-4"
+                >
+                  {YearOptions.map((option, index) => (
+                    <option key={index} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </Select>
+
+                {/* Notification Dropdown */}
+                <DropdownOption
+                  svg={Svg.Bell}
+                  boxWidth="w-80"
+                >
+                  <div className="max-h-[25rem] overflow-y-auto">
+                    {displayedNotifications.map((option, index) => (
+                      <MenuItem key={index}>
+                        {({ active }) => (
+                          <div
+                            onClick={() => handleOptionClick(option)}
+                            className={`flex gap-2 px-4 py-2 text-lg ${active ? 'bg-secondaryGrey03' : ''}`}
+                          >
+                            <div>{option.svg}</div>
+                            <div className="AdminMenuStyle">
+                              <h3 className="paragraph21 line-clamp-1">{option.name}</h3>
+                              <h3 className="paragraph21 line-clamp-1">{option.title}</h3>
+                              <h4 className="paragraph2 line-clamp-2">{option.description}</h4>
+                              <p className="paragraph3 line-clamp-1">{formatNotificationTime(option.time)}</p>
+                            </div>
+                          </div>
+                        )}
+                      </MenuItem>
+                    ))}
+                  </div>
+                  {/* View More Button */}
+                  {NotificationList.length > 3 && (
+                    <div className="text-center p-2">
+                      <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="text-blue-500 underline"
+                      >
+                        {showAll ? "Show Less" : "View More"}
+                      </button>
                     </div>
                   )}
-                </MenuItem>
-              ))}
-            </DropdownOption>
+                </DropdownOption>
+              </div>
+
+              {/* Admin Menu Dropdown */}
+              <DropdownOption
+                AdminName="Vivek Grover"
+                AdminType="Admin"
+                Arrow="Arrow"
+              >
+                {AdminMenu.map((Admin, index) => (
+                  <MenuItem key={index}>
+                    {({ active }) => (
+                      <div
+                        onClick={() => handleOptionClick(Admin)}
+                        className={`flex gap-2 px-4 py-2 text-lg ${active ? 'bg-secondaryGrey03' : ''}`}
+                      >
+                        <div>{Admin.svg}</div>
+                        <div className="AdminMenuStyle">
+                          <h3>{Admin.title}</h3>
+                        </div>
+                      </div>
+                    )}
+                  </MenuItem>
+                ))}
+              </DropdownOption>
+            </div>
           </div>
         </header>
       </div>

@@ -77,6 +77,13 @@ import ExamsResults from '../../assets/icons/quick-actions/exams_results.svg';
 import FeesCollection from '../../assets/icons/quick-actions/fees_collection.svg';
 import GeneralTimeTable from '../../assets/icons/quick-actions/general_time_table.svg';
 
+// Announcements
+import speaker from '../../assets/icons/speaker.svg';
+
+// Calendar icons
+import Event from '../../assets/icons/calendar/event.svg';
+import Lecture from '../../assets/icons/calendar/lecture.svg';
+
 
 
 export const IconsUrls = {
@@ -157,6 +164,13 @@ export const IconsUrls = {
     ExamsResults,
     FeesCollection,
     GeneralTimeTable,
+
+    // Announcements
+    speaker,
+
+    // Calendar icons
+    Event,
+    Lecture,
     
  
 };

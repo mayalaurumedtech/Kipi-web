@@ -35,6 +35,14 @@ import SmartMindLogo from '../../assets/images/institute-logo/smartmindlogo.png'
 import NeuromindLogo from '../../assets/images/institute-logo/neuromindlogo.png';
 import BrightFutureLogo from '../../assets/images/institute-logo/brightfuturelogo.png';
 
+// Slider images 
+import Slide01 from '../../assets/images/slider/slide01.jpg';
+
+// Leave Requests
+import Request01 from '../../assets/images/requests01.jpg';
+import Request02 from '../../assets/images/requests02.jpg';
+
+
 
 export const ImageUrls = {
 
@@ -74,6 +82,13 @@ export const ImageUrls = {
   SmartMindLogo,
   NeuromindLogo,
   BrightFutureLogo,
+
+  // Slider images 
+  Slide01,
+
+  // Leave Requests
+  Request01,
+  Request02,
  
 
 
