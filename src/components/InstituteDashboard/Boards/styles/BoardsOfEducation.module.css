@@ -1,0 +1,95 @@
+.modalBox {
+    padding: 0px 0px 0px 40px;
+    width: 584px;
+}
+
+.innerModalBox {
+    height: 650px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    padding-right: 40px;
+}
+
+.modalBox .boxStyle {
+    border: 1px solid var(--territory-grey-outline);
+}
+
+
+.announcements:hover {
+    border: 1px solid #FB4646 !important;
+    box-shadow: var(--hover-shadow01) #FB4646 !important;
+}
+
+.announcements svg {
+    fill: #FB4646 !important;
+}
+
+
+.ExamsandResults:hover {
+    border: 1px solid #439368 !important;
+    box-shadow: var(--hover-shadow01) #439368 !important;
+}
+
+.ExamsandResults svg {
+    fill: #439368 !important;
+}
+
+
+.Attendants:hover {
+    border: 1px solid #4579FF !important;
+    box-shadow: var(--hover-shadow01) #4579FF !important;
+}
+
+.Attendants svg {
+    fill: #4579FF !important;
+}
+
+
+.StudentsList:hover {
+    border: 1px solid #9747FF !important;
+    box-shadow: var(--hover-shadow01) #9747FF !important;
+}
+
+.StudentsList svg {
+    fill: #9747FF !important;
+}
+
+
+.TimeTable:hover {
+    border: 1px solid #FF8B49 !important;
+    box-shadow: var(--hover-shadow01) #FF8B49 !important;
+}
+
+.TimeTable svg {
+    fill: #FF8B49 !important;
+}
+
+
+.FeesCollectionSvg:hover {
+    border: 1px solid #00C3CF !important;
+    box-shadow: var(--hover-shadow01) #00C3CF !important;
+}
+
+.FeesCollectionSvg svg {
+    fill: #00C3CF !important;
+}
+
+
+.BatchesandSubjects:hover {
+    border: 1px solid #F9B247 !important;
+    box-shadow: var(--hover-shadow01) #F9B247 !important;
+}
+
+.BatchesandSubjects svg {
+    fill: #F9B247 !important;
+}
+
+
+.VideosandNotes:hover {
+    border: 1px solid #6E62FF !important;
+    box-shadow: var(--hover-shadow01) #6E62FF !important;
+}
+
+.VideosandNotes svg {
+    fill: #6E62FF !important;
+}

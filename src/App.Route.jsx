@@ -13,6 +13,8 @@ import InstituteDashboardLayout from './components/shared/InstituteDashboardLayo
 import InstituteLayout from './components/shared/InstituteLayout.jsx';
 import InstituteLandingDashboard from './components/InstituteDashboard/InstituteLandingDashboard.jsx';
 import InstituteDashboard from './components/InstituteDashboard/dashBoard/InstituteDashboard.jsx';
+import BoardsOfEducation from './components/InstituteDashboard/Boards/BoardsOfEducation.jsx';
+import SelectedStandard from './components/InstituteDashboard/Boards/SelectedStandard.jsx';
 
 
 const AppRoute = () => {
@@ -38,6 +40,8 @@ const AppRoute = () => {
 
                     <Route  element={<InstituteLayout />}> 
                         <Route exact path='/institute-dashboard' element={<InstituteDashboard />} />
+                        <Route exact path='/boards-of-education' element={<BoardsOfEducation />} />
+                        <Route exact path='/boards-of-education/:standardId' element={<SelectedStandard />} />
                     </Route>
                 </Route>
             </Routes>

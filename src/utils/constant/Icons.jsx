@@ -84,6 +84,19 @@ import speaker from '../../assets/icons/speaker.svg';
 import Event from '../../assets/icons/calendar/event.svg';
 import Lecture from '../../assets/icons/calendar/lecture.svg';
 
+// Dashboard 
+import Badge from '../../assets/icons/badge.svg';
+
+import Announcements from '../../assets/icons/std-features/announcements.svg';
+import ExamsandResults from '../../assets/icons/std-features/exams-and-results.svg';
+import Attendants from '../../assets/icons/std-features/attendants.svg';
+import StudentsList from '../../assets/icons/std-features/students-list.svg';
+import TimeTable from '../../assets/icons/std-features/time-table.svg';
+import FeesCollectionSvg from '../../assets/icons/std-features/fees-collection.svg';
+import BatchesandSubjects from '../../assets/icons/std-features/batches-and-subjects.svg';
+import VideosandNotes from '../../assets/icons/std-features/videos-and-notes.svg';
+
+
 
 
 export const IconsUrls = {
@@ -171,6 +184,19 @@ export const IconsUrls = {
     // Calendar icons
     Event,
     Lecture,
+
+    // Dashboard 
+    Badge,
+
+    Announcements,
+    ExamsandResults,
+    Attendants,
+    StudentsList,
+    TimeTable,
+    FeesCollectionSvg,
+    BatchesandSubjects,
+    VideosandNotes,
+ 
     
  
 };

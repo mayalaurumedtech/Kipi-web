@@ -82,7 +82,6 @@ const leaveRequests = [
     applydate: '1 May',
     type: 'Sick',
     Sick: true
-
   },
   {
     icon: ImageUrls.Request01,

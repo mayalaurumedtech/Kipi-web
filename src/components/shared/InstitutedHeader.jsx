@@ -8,6 +8,7 @@ import { MyContext } from './InstituteLayout.jsx';
 import Select from '../custom/Select.jsx';
 import OptionSwitchButton from '../custom/OptionSwitchButton.jsx';
 import { ImageUrls } from '../../utils/constant/Images.jsx';
+import SearchBar from '../custom/SearchBar.jsx';
 
 const AdminMenu = [
   { id: 1, title: 'Profile', path: '', svg: Svg.User },
@@ -64,6 +65,13 @@ const YearOptions = [
   { value: 'Academic Year : 2022-23', label: 'Academic Year : 2022-23' },
 ];
 
+const options = [
+  { value: 'Elite Future Academy', label: 'Elite Future Academy', img: ImageUrls.EliteAcademyLogo, email: 'elitefutureacademy@gmail.com', },
+  { value: 'Smart Mind Institute', label: 'Smart Mind Institute', img: ImageUrls.SmartMindLogo, email: 'smartmind@smartmind.com', },
+  { value: 'Neuromind Academy', label: 'Neuromind Academy', img: ImageUrls.NeuromindLogo, email: 'neuromindacademy@gmail.com', },
+  { value: 'Bright Future Institute', label: 'Bright Future Institute', img: ImageUrls.BrightFutureLogo, email: 'brightfutureintitute@gmail.com', },
+];
+
 const formatNotificationTime = (date) => {
   const secondsDifference = differenceInSeconds(new Date(), date);
 
@@ -77,15 +85,12 @@ const formatNotificationTime = (date) => {
 const InstitutedHeader = () => {
   const [showAll, setShowAll] = useState(false);
   const [filter, setFilter] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [searchValue, setSearchValue] = useState('');
 
-  const options = [
-    { value: 'Elite Future Academy', label: 'Elite Future Academy', img: ImageUrls.EliteAcademyLogo, email: 'elitefutureacademy@gmail.com',},
-    { value: 'Smart Mind Institute', label: 'Smart Mind Institute', img: ImageUrls.SmartMindLogo, email: 'smartmind@smartmind.com',},
-    { value: 'Elite Future Academy', label: 'Elite Future Academy', img: ImageUrls.NeuromindLogo, email: 'neuromindacademy@gmail.com',},
-    { value: 'Bright Future Institute', label: 'Bright Future Institute', img: ImageUrls.BrightFutureLogo, email: 'brightfutureintitute@gmail.com', },
-  ];
-
+  const handleSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   const context = useContext(MyContext);
 
@@ -115,15 +120,27 @@ const InstitutedHeader = () => {
 
           <div className="flex justify-between w-[82.7%] items-center">
 
-              <OptionSwitchButton
-                value={selectedOption}
-                onChange={setSelectedOption}
-                options={options}
-              />
+            <OptionSwitchButton
+              value={selectedOption}
+              onChange={setSelectedOption}
+              options={options}
+            />
 
             <div className="flex gap-12 pt-4">
 
               <div className="flex gap-6">
+
+                <div>
+                  <SearchBar
+                    value={searchValue}
+                    onChange={handleSearchChange}
+                    placeholder="Search"
+                    inputClassName="w-full bg-secondaryGrey03 "
+                    iconClassName="mr-2"
+                  />
+                </div>
+
+                {/* Academic Year */}
                 <Select
                   value={filter}
                   onChange={(e) => setFilter(e.target.value)}

@@ -1,0 +1,28 @@
+.instCard {
+    position: relative;
+    border: 1px solid var(--territory-grey-outline);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.instCard:hover {
+    border: 1px solid var(--primary-dark-blue);
+    box-shadow: var(--hover-shadow01);
+    cursor: pointer;
+}
+
+.arrowRight{
+    position: absolute;
+    top: 16px;
+    right: 60px;
+    opacity: 0;
+}
+
+.instCard:hover .arrowRight{
+    opacity: 1;
+    right: 16px !important;
+    transition: all 1s ease;
+}

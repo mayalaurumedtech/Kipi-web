@@ -91,7 +91,7 @@ const ChartOptions = [
 
 // Main component with filter and chart
 const FeesCollectionChart = () => {
-    const [filter, setFilter] = useState('');
+    const [filter, setFilter] = useState('This Week');
 
     const data = {
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],

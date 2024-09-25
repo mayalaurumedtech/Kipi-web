@@ -6,7 +6,7 @@ import { ImageUrls } from '../../utils/constant/Images';
 
 const DropdownOption = ({ buttonLabel, options, Arrow, AdminName, AdminType, svg, boxWidth="w-52", AdminMenuStyle, children }) => {
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left w-max">
       {({ open }) => (
         <>
           <div>
