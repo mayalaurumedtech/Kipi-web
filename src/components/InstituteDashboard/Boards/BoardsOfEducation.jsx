@@ -38,32 +38,44 @@ const Boards = [
         icon: ImageUrls.icseBoard,
         medium: 'English Medium',
     },
-
 ];
 
-const secondaryClasses = [
-    { id: 1, icons: IconsUrls.Badge, name: 'Std - 9', path: '/boards-of-education/9' },
-    { id: 2, icons: IconsUrls.Badge, name: 'Std - 10', path: '/boards-of-education/10' },
-];
-
-const HigersecondaryClasses = [
-    { id: 1, icons: IconsUrls.Badge, name: 'Std - 11(Science)', path: '/boards-of-education/11-science' },
-    { id: 2, icons: IconsUrls.Badge, name: 'Std - 12(Science)', path: '/boards-of-education/12-science' },
-    { id: 3, icons: IconsUrls.Badge, name: 'Std - 11(Commerce)', path: '/boards-of-education/11-commerce' },
-    { id: 4, icons: IconsUrls.Badge, name: 'Std - 12(Commerce)', path: '/boards-of-education/12-commerce' },
-    { id: 5, icons: IconsUrls.Badge, name: 'Std - 11(Arts)', path: '/boards-of-education/11-arts' },
+const Classes = [
+    { id: 1, icons: IconsUrls.Badge, catagory: 'Secondary', name: 'Std - 9', },
+    { id: 2, icons: IconsUrls.Badge, catagory: 'Secondary', name: 'Std - 10', },
+    { id: 3, icons: IconsUrls.Badge, catagory: 'Higersecondary', name: 'Std - 11(Science)', },
+    { id: 4, icons: IconsUrls.Badge, catagory: 'Higersecondary', name: 'Std - 12(Science)', },
+    { id: 5, icons: IconsUrls.Badge, catagory: 'Higersecondary', name: 'Std - 11(Commerce)', },
+    { id: 6, icons: IconsUrls.Badge, catagory: 'Higersecondary', name: 'Std - 12(Commerce)', },
+    { id: 7, icons: IconsUrls.Badge, catagory: 'Higersecondary', name: 'Std - 11(Arts)', },
 ];
 
 const BoardsOfEducation = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedBoard, setSelectedBoard] = useState(null);
 
-    const openModal = () => {
+    const openModal = (board) => {
+        setSelectedBoard(board);
         setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
+        setSelectedBoard(null);
     };
+
+    const groupedClasses = Classes.reduce((groupedClasses, classItem) => {
+        const catagory = classItem.catagory;
+        groupedClasses[catagory] = groupedClasses[catagory] ?? [];
+        groupedClasses[catagory].push(classItem);
+
+        return groupedClasses;
+    }, {});
+
+
+    const secondaryClasses = groupedClasses['Secondary'] ?? [];
+    const higersecondaryClasses = groupedClasses['Higersecondary'] ?? [];
+
 
     return (
         <>
@@ -75,14 +87,13 @@ const BoardsOfEducation = () => {
                         <li>/</li>
                         <li className="text-primaryBlack font-normal">Boards of Education</li>
                     </ul>
-
                 </div>
                 <Buttons path="/institute-registration" svg={Svg.PluseSvg} text="Add New Board" buttonStyle="cusbuttons" alt="Add New Board" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                 {Boards.map((value) => (
-                    <ArrowAnimation value={value} openModal={openModal} >
+                    <ArrowAnimation value={value} key={value.id} onClick={() => openModal(value)}>
                         <div>
                             <h4 className="heading2">{value.name}</h4>
                             <p className="paragraph font-normal line-clamp-1">{value.title}</p>
@@ -92,42 +103,42 @@ const BoardsOfEducation = () => {
                 ))}
             </div>
 
-
-            {isModalOpen && (
+            {isModalOpen && selectedBoard && (
                 <Modal isOpen={isModalOpen} onClose={closeModal}>
                     <div className={styled.modalBox}>
-                        <h2 className="title mb-4">Selected Standard</h2>
+                        <h2 className="title mb-4">Selected Standard for {selectedBoard.name}</h2>
                         <div className={styled.innerModalBox}>
-                            <p className="paragraph2 md:pt-8">Secondary Classes</p>
+                            <p className="paragraph2 md:pt-8">Secondary Classes ({selectedBoard.medium})</p>
                             <div className="pt-6 flex flex-col gap-4">
                                 {secondaryClasses.map((action, index) => (
-                                    <Link to={action.path} key={index}>
-                                        <QuickActionsArrowAnim
-                                            action={action}
-                                            className="border border-territoryGreyOutline rounded-2xl transition-all hover:border-primaryBlue hover:shadow-custom-shadow01 hover:shadow-primaryBlue"
-                                        />
+                                    <Link to={"/boards-of-education/" + action.id} className={`mainBox ${action.boxStyle} border border-territoryGreyOutline rounded-2xl transition-all hover:border-primaryBlue hover:shadow-custom-shadow01 hover:shadow-primaryBlue`}>
+                                        <div className="flex gap-4 items-center">
+                                            <img src={action.icons} alt="" className="h-12" />
+                                            <h3 className="paragraph font-semibold">{action.name}</h3>
+                                        </div>
+                                        <div className="arrow">{Svg.BgArrowRight}</div>
                                     </Link>
                                 ))}
                             </div>
 
-                            <p className="paragraph2 pt-3 md:pt-6">Higer Secondary Classes</p>
+                            <p className="paragraph2 pt-3 md:pt-6">Higher Secondary Classes ({selectedBoard.medium})</p>
                             <div className="pt-6 flex flex-col gap-4">
-                                {HigersecondaryClasses.map((action, index) => (
-                                    <Link to={action.path} key={index}>
-                                        <QuickActionsArrowAnim
-                                            action={action}
-                                            className="border border-territoryGreyOutline rounded-2xl transition-all hover:border-primaryBlue hover:shadow-custom-shadow01 hover:shadow-primaryBlue"
-                                        />
+                                {higersecondaryClasses.map((action, index) => (
+                                    <Link to={"/boards-of-education/" + action.id} className={`mainBox ${action.boxStyle} border border-territoryGreyOutline rounded-2xl transition-all hover:border-primaryBlue hover:shadow-custom-shadow01 hover:shadow-primaryBlue`}>
+                                        <div className="flex gap-4 items-center">
+                                            <img src={action.icons} alt="" className="h-12" />
+                                            <h3 className="paragraph font-semibold">{action.name}</h3>
+                                        </div>
+                                        <div className="arrow">{Svg.BgArrowRight}</div>
                                     </Link>
                                 ))}
                             </div>
-
                         </div>
                     </div>
                 </Modal>
             )}
         </>
-    )
-}
+    );
+};
 
-export default BoardsOfEducation
+export default BoardsOfEducation;

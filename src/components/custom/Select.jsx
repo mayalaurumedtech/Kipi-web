@@ -2,7 +2,7 @@ import React from 'react';
 import ArrowDown from '../../assets/icons/arrowdown.svg';
 
 
-const Select = ({  value, onChange, className, placeholder, children }) => {
+const Select = ({  value, onChange, className, placeholder, children }) => { 
     return (
         <div className={`relative ${className}`}>
             <select

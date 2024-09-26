@@ -129,42 +129,42 @@ body {
 
 /* =============xxxxxxxxxxxxxx react-calendar start xxxxxxxxxxxxxx=============  */
 
-.react-calendar{
+.react-calendar {
     border: none !important;
     width: 100% !important;
 }
 
 .react-calendar .react-calendar__navigation__prev2-button,
-.react-calendar .react-calendar__navigation__next2-button{
+.react-calendar .react-calendar__navigation__next2-button {
     display: none;
 }
 
-.react-calendar .react-calendar__navigation{
+.react-calendar .react-calendar__navigation {
     border-bottom: 1px solid var(--territory-grey-outline);
 }
 
-.react-calendar .react-calendar__navigation__label{
+.react-calendar .react-calendar__navigation__label {
     font-size: 18px;
     font-weight: 600;
 }
 
-.react-calendar .react-calendar__navigation__arrow{
+.react-calendar .react-calendar__navigation__arrow {
     color: var(--secondary-grey-02);
 }
 
-.react-calendar .react-calendar__month-view__weekdays__weekday{
+.react-calendar .react-calendar__month-view__weekdays__weekday {
     font-size: 16px;
     font-weight: 400;
     text-transform: capitalize;
     text-decoration: none;
-    
+
 }
 
-.react-calendar abbr:where([title]){
+.react-calendar abbr:where([title]) {
     text-decoration: none;
 }
 
-.react-calendar .react-calendar__tile{
+.react-calendar .react-calendar__tile {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -174,7 +174,7 @@ body {
     padding: 17px;
 }
 
-.react-calendar .react-calendar__tile--active{
+.react-calendar .react-calendar__tile--active {
     /* width: 28px !important;
     height: 28px !important; */
     border-radius: 50%;
@@ -184,7 +184,8 @@ body {
 }
 
 .react-calendar .react-calendar__tile--now,
-.react-calendar__tile:enabled:hover, .react-calendar__tile:enabled:focus{
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
     border-radius: 50%;
 }
 
@@ -194,18 +195,48 @@ body {
 
 
 /* =============xxxxxxxxxxxxxx carousel start xxxxxxxxxxxxxx=============  */
-.carousel .thumbs-wrapper{
+.carousel .thumbs-wrapper {
     display: none;
 }
+
 /* =============xxxxxxxxxxxxxx carousel End xxxxxxxxxxxxxx=============  */
 
 
 
 /* =============xxxxxxxxxxxxxx rechart start xxxxxxxxxxxxxx=============  */
-.recharts-cartesian-grid-vertical{
+.recharts-cartesian-grid-vertical {
     display: none;
 }
+
 /* =============xxxxxxxxxxxxxx rechart End xxxxxxxxxxxxxx=============  */
+
+
+
+
+/* =============xxxxxxxxxxxxxx center Arrow animation start xxxxxxxxxxxxxx=============  */
+.mainBox {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+}
+
+.arrow {
+    position: absolute;
+    right: 60px;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.mainBox:hover .arrow {
+    opacity: 1;
+    right: 16px;
+}
+
+/* =============xxxxxxxxxxxxxx center Arrow animation End xxxxxxxxxxxxxx=============  */
 
 
 
@@ -244,26 +275,26 @@ body {
     border-right: 1px solid var(--territory-grey-outline);
 }
 
-.sidebar-menu{
+.sidebar-menu {
     padding: 16px;
     border: 1px solid transparent;
     transition: all .3s ease;
 }
 
-.sidebar-menu-active{
+.sidebar-menu-active {
     border: 1px solid var(--primary-blue);
     border-radius: 16px;
     font-weight: 500;
     background-color: var(--secondary-light-blue-02);
 }
 
-.sidebar-menu:hover{
+.sidebar-menu:hover {
     border-radius: 16px;
     background-color: var(--secondary-light-blue-02);
 }
 
 .sidebar-menu-active svg,
-.sidebar-menu:hover svg{
+.sidebar-menu:hover svg {
     fill: var(--primary-blue);
 }
 
