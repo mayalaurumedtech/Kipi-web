@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Svg } from '../../utils/constant/Svg';
 import { ImageUrls } from '../../utils/constant/Images';
 
-const DropdownOption = ({ buttonLabel, options, Arrow, AdminName, AdminType, svg, boxWidth="w-52", AdminMenuStyle, children }) => {
+const DropdownOption = ({NotificationList, buttonLabel, options, Arrow, AdminName, AdminType, svg, boxWidth="w-52", AdminMenuStyle, children }) => {
   return (
     <Menu as="div" className="relative inline-block text-left w-max">
       {({ open }) => (
@@ -13,7 +13,7 @@ const DropdownOption = ({ buttonLabel, options, Arrow, AdminName, AdminType, svg
             <MenuButton className="inline-flex gap-2 w-full items-center text-secondaryGrey01">
               {buttonLabel}
               {svg && (
-                <div className="bg-secondaryLightBlue02 w-12 h-12 rounded-full flex justify-center items-center">{svg}</div>
+                <div className={`${NotificationList.length> 0 ? "notification-fill" : ""} bg-secondaryLightBlue02 w-12 h-12 rounded-full flex justify-center items-center `}>{svg}</div>
             )}
               {AdminName && (
                 <div className="flex gap-2 text-right">

@@ -5,10 +5,10 @@ import { Svg } from '../../utils/constant/Svg';
 import { formatDistanceToNow, differenceInSeconds } from 'date-fns';
 import { MenuItem } from '@headlessui/react';
 import { MyContext } from './InstituteLayout.jsx';
-import Select from '../custom/Select.jsx';
 import OptionSwitchButton from '../custom/OptionSwitchButton.jsx';
 import { ImageUrls } from '../../utils/constant/Images.jsx';
 import SearchBar from '../custom/SearchBar.jsx';
+import Dropdown from '../custom/Dropdown.jsx';
 
 const AdminMenu = [
   { id: 1, title: 'Profile', path: '', svg: Svg.User },
@@ -119,7 +119,6 @@ const InstitutedHeader = () => {
           </div>
 
           <div className="flex justify-between w-[82.7%] items-center">
-
             <OptionSwitchButton
               value={selectedOption}
               onChange={setSelectedOption}
@@ -141,21 +140,17 @@ const InstitutedHeader = () => {
                 </div>
 
                 {/* Academic Year */}
-                <Select
-                  value={filter}
-                  onChange={(e) => setFilter(e.target.value)}
-                  className="mb-4"
-                >
-                  {YearOptions.map((option, index) => (
-                    <option key={index} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </Select>
+                <Dropdown
+                    value={filter}
+                    onChange={setFilter}
+                    options={YearOptions}
+                />
+                
 
                 {/* Notification Dropdown */}
                 <DropdownOption
                   svg={Svg.Bell}
+                  NotificationList={NotificationList}
                   boxWidth="w-80"
                 >
                   <div className="max-h-[25rem] overflow-y-auto">

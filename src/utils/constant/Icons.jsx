@@ -97,6 +97,13 @@ import BatchesandSubjects from '../../assets/icons/std-features/batches-and-subj
 import VideosandNotes from '../../assets/icons/std-features/videos-and-notes.svg';
 
 
+// Announcements 
+import Video from '../../assets/icons/announcement-icon/video.svg';
+import Microphone from '../../assets/icons/announcement-icon/microphone.svg';
+import Document from '../../assets/icons/announcement-icon/document.svg';
+import TimerAlert from '../../assets/icons/announcement-icon/timer.svg';
+
+
 
 
 export const IconsUrls = {
@@ -197,6 +204,11 @@ export const IconsUrls = {
     BatchesandSubjects,
     VideosandNotes,
  
+    // Announcements 
+    Video,
+    Microphone,
+    Document,
+    TimerAlert,
     
  
 };

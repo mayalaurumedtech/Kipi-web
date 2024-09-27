@@ -12,8 +12,8 @@ const StdFeatures = [
         icon: IconsUrls.Announcements,
         title: 'No new updates',
         boxStyle: `${styled.announcements}`,
-        standards: [ 1,2,3,4,5,6,7],
-        path:'announcements'
+        standards: [1, 2, 3, 4, 5, 6, 7],
+        path: '/announcements'
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const StdFeatures = [
         icon: IconsUrls.ExamsandResults,
         title: 'No new updates',
         boxStyle: `${styled.ExamsandResults}`,
-        standards: [ 1,2,3,4,5,6,7]
+        standards: [1, 2, 3, 4, 5, 6, 7]
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const StdFeatures = [
         icon: IconsUrls.Attendants,
         title: 'No new updates',
         boxStyle: `${styled.Attendants}`,
-        standards: [1,2,3,4,5,6,7]
+        standards: [1, 2, 3, 4, 5, 6, 7]
     },
     {
         id: 4,
@@ -37,7 +37,7 @@ const StdFeatures = [
         icon: IconsUrls.StudentsList,
         title: 'No new updates',
         boxStyle: `${styled.StudentsList}`,
-        standards: [1,2,3,4,5,6,7]
+        standards: [1, 2, 3, 4, 5, 6, 7]
     },
     {
         id: 5,
@@ -45,7 +45,7 @@ const StdFeatures = [
         icon: IconsUrls.TimeTable,
         title: 'No new updates',
         boxStyle: `${styled.TimeTable}`,
-        standards: [1,2,3,4,5,6,7]
+        standards: [1, 2, 3, 4, 5, 6, 7]
     },
     {
         id: 6,
@@ -53,7 +53,7 @@ const StdFeatures = [
         icon: IconsUrls.FeesCollectionSvg,
         title: 'No new updates',
         boxStyle: `${styled.FeesCollectionSvg}`,
-        standards: [1,2,3,4,5,6,7]
+        standards: [1, 2, 3, 4, 5, 6, 7]
     },
     {
         id: 7,
@@ -61,7 +61,7 @@ const StdFeatures = [
         icon: IconsUrls.BatchesandSubjects,
         title: 'No new updates',
         boxStyle: `${styled.BatchesandSubjects}`,
-        standards: [1,2,3,4,5,6,7]
+        standards: [1, 2, 3, 4, 5, 6, 7]
     },
     {
         id: 8,
@@ -69,7 +69,7 @@ const StdFeatures = [
         icon: IconsUrls.VideosandNotes,
         title: 'No new updates',
         boxStyle: `${styled.VideosandNotes}`,
-        standards: [1,2,3,4,5,6]
+        standards: [1, 2, 3, 4, 5, 6]
     },
 
 ];
@@ -86,10 +86,10 @@ const StdOptions = [
 
 const SelectedStandard = () => {
     const { standardId } = useParams();
-    const [filter, setFilter] = useState(StdOptions.find(x=>x.id == standardId).value);
+    const [filter, setFilter] = useState(StdOptions.find(x => x.id == standardId).value);
 
 
-    const filteredFeatures = useMemo(() => { 
+    const filteredFeatures = useMemo(() => {
         return StdFeatures.filter((feature) => feature.standards.includes(parseInt(filter)));
     }, [filter]);
 

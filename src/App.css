@@ -127,6 +127,10 @@ body {
 
 }
 
+.notification-fill svg{
+    fill: var(--territory-red) !important;
+}
+
 /* =============xxxxxxxxxxxxxx react-calendar start xxxxxxxxxxxxxx=============  */
 
 .react-calendar {
@@ -209,6 +213,22 @@ body {
 }
 
 /* =============xxxxxxxxxxxxxx rechart End xxxxxxxxxxxxxx=============  */
+
+
+/* =============xxxxxxxxxxxxxx react-player start xxxxxxxxxxxxxx=============  */
+.player-wrapper {
+    position: relative;
+    width: 648px;
+    height: 366px;
+  }
+  
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+/* =============xxxxxxxxxxxxxx react-player End xxxxxxxxxxxxxx=============  */
 
 
 
